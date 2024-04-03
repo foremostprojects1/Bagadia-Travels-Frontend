@@ -1,0 +1,35 @@
+/* Hide the default file input button */
+input[type="file"] {
+    display: none;
+  }
+  
+  /* Style the custom button */
+  .custom-file-input {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #104CB3;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Style the label */
+  .custom-file-label {
+    margin-left: 10px;
+    font-size: 14px;
+    color: #fff;
+  }
+  
+  /* Hover effect for the custom button */
+  .custom-file-input:hover {
+    background-color: #45a049;
+    color: #fff;
+  }
+  
+  /* Active effect for the custom button */
+  .custom-file-input:active {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+  

@@ -1,0 +1,321 @@
+[
+  {
+    "id": "1",
+    "label": "Home",
+    "link": "/",
+    "icon": false
+  },
+  {
+    "id": "2",
+    "label": "About",
+    "link": "/about",
+    "icon": false
+  },
+  {
+    "id": "3",
+    "label": "Tour Packages",
+    "link": "/package",
+    "icon": false,
+    "subMenu": [
+      {
+        "id": "1",
+        "label": "India",
+        "link": "/india",
+        "icon": true,
+        "subMenu": [
+          {
+            "id": "1",
+            "label": "Kashmir",
+            "link": "/package/package-name/kashmir"
+          },
+          {
+            "id": "2",
+            "label": "Rajasthan",
+            "link": "/package/package-name/rajasthan"
+          },
+          {
+            "id": "3",
+            "label": "Gujarat",
+            "link": "/package/package-name/gujarat"
+          },
+          {
+            "id": "4",
+            "label": "Maharashtra",
+            "link": "/package/package-name/maharashtra"
+          },
+          {
+            "id": "5",
+            "label": "Goa",
+            "link": "/package/package-name/goa"
+          },
+          {
+            "id": "6",
+            "label": "Karnataka",
+            "link": "/package/package-name/karnataka"
+          },
+          {
+            "id": "7",
+            "label": "Telangana",
+            "link": "/package/package-name/telangana"
+          },
+          {
+            "id": "8",
+            "label": "North Kerala",
+            "link": "/package/package-name/north-kerala"
+          },
+          {
+            "id": "9",
+            "label": "Kerala",
+            "link": "/package/package-name/kerala"
+          },
+          {
+            "id": "10",
+            "label": "Tamil Nadu",
+            "link": "/package/package-name/tamil-nadu"
+          },
+          {
+            "id": "11",
+            "label": "Andhra Pradesh",
+            "link": "/package/package-name/andhra-pradesh"
+          },
+          {
+            "id": "12",
+            "label": "Odisha",
+            "link": "/package/package-name/odisha"
+          },
+          {
+            "id": "13",
+            "label": "West Bengal",
+            "link": "/package/package-name/west-bengal"
+          },
+          {
+            "id": "14",
+            "label": "Bihar",
+            "link": "/package/package-name/bihar"
+          },
+          {
+            "id": "15",
+            "label": "North East",
+            "link": "/package/package-name/north-east"
+          },
+          {
+            "id": "16",
+            "label": "Uttar Pradesh",
+            "link": "/package/package-name/uttar-pradesh"
+          },
+          {
+            "id": "17",
+            "label": "Uttarakhand",
+            "link": "/package/package-name/uttarakhand"
+          },
+          {
+            "id": "18",
+            "label": "Himachal Pradesh",
+            "link": "/package/package-name/himachal-pradesh"
+          },
+          {
+            "id": "19",
+            "label": "Leh Ladakh",
+            "link": "/package/package-name/leh-ladakh"
+          },
+          {
+            "id": "20",
+            "label": "New Delhi",
+            "link": "/package/package-name/new-delhi"
+          },
+          {
+            "id": "21",
+            "label": "Madhya Pradesh",
+            "link": "/package/package-name/madhya-pradesh"
+          },
+          {
+            "id": "22",
+            "label": "Andaman Nicobar Island",
+            "link": "/package/package-name/andaman-nicobar-island"
+          },
+          {
+            "id": "23",
+            "label": "Lakshadweep Island",
+            "link": "/package/package-name/lakshadweep-island"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "label": "South-East Asia",
+        "link": "/south-east-asia",
+        "icon": true,
+        "subMenu": [
+          {
+            "id": "1",
+            "label": "Sri Lanka",
+            "link": "/package/package-name/sri-lanka"
+          },
+          {
+            "id": "2",
+            "label": "Singapore",
+            "link": "/package/package-name/singapore"
+          },
+          {
+            "id": "3",
+            "label": "Malaysia",
+            "link": "/package/package-name/malaysia"
+          },
+          {
+            "id": "4",
+            "label": "Thailand",
+            "link": "/package/package-name/thailand"
+          },
+          {
+            "id": "5",
+            "label": "Vietnam",
+            "link": "/package/package-name/vietnam"
+          },
+          {
+            "id": "6",
+            "label": "Bali",
+            "link": "/package/package-name/bali"
+          },
+          {
+            "id": "7",
+            "label": "Maldives",
+            "link": "/package/package-name/maldives"
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "label": "Middle East Asia",
+        "link": "/middle-east-asia",
+        "icon": true,
+        "subMenu": [
+          {
+            "id": "1",
+            "label": "UAE Dubai",
+            "link": "/package/package-name/uae-dubai"
+          },
+          {
+            "id": "2",
+            "label": "Baku - Azerbaijan",
+            "link": "/package/package-name/baku-azerbaijan"
+          },
+          {
+            "id": "3",
+            "label": "Saudi Arabia",
+            "link": "/package/package-name/saudi-arabia"
+          }
+        ]
+      },
+      {
+        "id": "4",
+        "label": "East Europe",
+        "link": "/east-europe",
+        "icon": true,
+        "subMenu": [
+          {
+            "id": "1",
+            "label": "Greece",
+            "link": "/package/package-name/greece"
+          },
+          {
+            "id": "2",
+            "label": "Russia",
+            "link": "/package/package-name/russia"
+          },
+          {
+            "id": "3",
+            "label": "Turkey",
+            "link": "/package/package-name/turkey"
+          },
+          {
+            "id": "4",
+            "label": "Poland",
+            "link": "/package/package-name/poland"
+          }
+        ]
+      },
+      {
+        "id": "5",
+        "label": "Central Europe",
+        "link": "/central-europe",
+        "icon": true,
+        "subMenu": [
+          {
+            "id": "1",
+            "label": "Finland",
+            "link": "/package/package-name/finland"
+          },
+          {
+            "id": "2",
+            "label": "Switzerland",
+            "link": "/package/package-name/switzerland"
+          },
+          {
+            "id": "3",
+            "label": "Iceland",
+            "link": "/package/package-name/iceland"
+          },
+          {
+            "id": "4",
+            "label": "Italy",
+            "link": "/package/package-name/italy"
+          },
+          {
+            "id": "5",
+            "label": "Norway",
+            "link": "/package/package-name/norway"
+          },
+          {
+            "id": "6",
+            "label": "Austria",
+            "link": "/package/package-name/austria"
+          },
+          {
+            "id": "7",
+            "label": "Netherlands",
+            "link": "/package/package-name/netherlands"
+          },
+          {
+            "id": "8",
+            "label": "Paris",
+            "link": "/package/package-name/paris"
+          },
+          {
+            "id": "9",
+            "label": "France",
+            "link": "/package/package-name/france"
+          },
+          {
+            "id": "10",
+            "label": "Germany",
+            "link": "/package/package-name/germany"
+          },
+          {
+            "id": "11",
+            "label": "UK",
+            "link": "/package/package-name/uk"
+          },
+          {
+            "id": "12",
+            "label": "Spain",
+            "link": "/package/package-name/spain"
+          },
+          {
+            "id": "13",
+            "label": "Ireland",
+            "link": "/package/package-name/ireland"
+          }
+        ]
+      }
+      
+      
+    ]
+  },
+
+  {
+    "id": "6",
+    "label": "Contact",
+    "link": "/contact",
+    "icon": false
+  }
+]
