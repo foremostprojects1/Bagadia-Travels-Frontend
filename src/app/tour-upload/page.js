@@ -200,7 +200,7 @@ const page = () => {
       //   console.log("FormData => " + JSON.stringify(formData));
 
       await axios
-        .post("http://localhost:4000/api/v1/tour/create", formData, {
+        .post("https://bagadia-travels.onrender.com/api/v1/tour/create", formData, {
           withCredentials: true,
         })
         .then((response) => {

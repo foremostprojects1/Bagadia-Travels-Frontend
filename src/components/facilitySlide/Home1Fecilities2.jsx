@@ -29,7 +29,7 @@ const Home1Fecilities2 = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:4000/api/v1/tour/getTours",
+          "https://bagadia-travels.onrender.com/api/v1/tour/getTours",
           { withCredentials: true }
         );
 
@@ -87,7 +87,7 @@ const Home1Fecilities2 = () => {
 
       const response = await axios
         .post(
-          "http://localhost:4000/api/v1/inquiry/addSmallInquiry",
+          "https://bagadia-travels.onrender.com/api/v1/inquiry/addSmallInquiry",
           formData,
           {
             withCredentials: true,

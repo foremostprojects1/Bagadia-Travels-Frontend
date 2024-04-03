@@ -38,7 +38,7 @@ const page = () => {
       };
 
       await axios
-        .post("http://localhost:4000/api/v1/user/login", data)
+        .post("https://bagadia-travels.onrender.com/api/v1/user/login", data)
         .then((response) => {
           toast.success(response.data.message, {
             position: "top-right",

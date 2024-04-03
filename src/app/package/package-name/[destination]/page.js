@@ -46,7 +46,7 @@ const page = () => {
 
       const response = await axios
         .post(
-          "http://localhost:4000/api/v1/inquiry/addSmallInquiry",
+          "https://bagadia-travels.onrender.com/api/v1/inquiry/addSmallInquiry",
           formData,
           {
             withCredentials: true,
@@ -73,7 +73,7 @@ const page = () => {
       try {
         const response = await axios
           .get(
-            `http://localhost:4000/api/v1/tour/getToursByName/${destination}`,
+            `https://bagadia-travels.onrender.com/api/v1/tour/getToursByName/${destination}`,
             { withCredentials: true }
           )
           .then((response) => {

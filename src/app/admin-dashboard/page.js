@@ -59,7 +59,7 @@ const Page = () => {
       try {
         // Make a GET request to fetch data from the database
         const response = await axios.get(
-          "http://localhost:4000/api/v1/inquiry/getRecentInquiries",
+          "https://bagadia-travels.onrender.com/api/v1/inquiry/getRecentInquiries",
           { withCredentials: true }
         );
         console.log(response.data.inquiries);

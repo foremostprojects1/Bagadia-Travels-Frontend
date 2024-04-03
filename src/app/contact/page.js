@@ -47,7 +47,7 @@ const page = () => {
       };
 
       const response = await axios
-        .post("http://localhost:4000/api/v1/inquiry/addInquiry", formData, {
+        .post("https://bagadia-travels.onrender.com/api/v1/inquiry/addInquiry", formData, {
           withCredentials: true,
         })
         .then((response) => {

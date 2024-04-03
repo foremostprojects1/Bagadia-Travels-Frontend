@@ -34,7 +34,7 @@ const LoginModal = () => {
       };
 
       await axios
-        .post("http://localhost:4000/api/v1/user/login", data,{ withCredentials: true })
+        .post("https://bagadia-travels.onrender.com/api/v1/user/login", data,{ withCredentials: true })
         .then((response) => {
           toast.success(response.data.message, {
             position: "top-right",

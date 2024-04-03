@@ -53,7 +53,7 @@ const Page = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/tour/deleteTour/${id}`, {
+      await axios.delete(`https://bagadia-travels.onrender.com/api/v1/tour/deleteTour/${id}`, {
         withCredentials: true,
       });
 
@@ -76,7 +76,7 @@ const Page = () => {
       try {
         // Make a GET request to fetch data from the database
         const response = await axios.get(
-          "http://localhost:4000/api/v1/tour/getTours",
+          "https://bagadia-travels.onrender.com/api/v1/tour/getTours",
           { withCredentials: true }
         );
 

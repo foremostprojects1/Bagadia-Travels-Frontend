@@ -55,7 +55,7 @@ const Page = () => {
       };
 
       const response = await axios
-        .post("http://localhost:4000/api/v1/inquiry/addInquiry", formData, {
+        .post("https://bagadia-travels.onrender.com/api/v1/inquiry/addInquiry", formData, {
           withCredentials: true,
         })
         .then((response) => {
@@ -96,7 +96,7 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const response = await axios
-          .get(`http://localhost:4000/api/v1/tour/getTour/${itemId}`)
+          .get(`https://bagadia-travels.onrender.com/api/v1/tour/getTour/${itemId}`)
           .then((response) => {
             setData(response.data.tour);
             // console.log("Data " + JSON.stringify(response.data));
