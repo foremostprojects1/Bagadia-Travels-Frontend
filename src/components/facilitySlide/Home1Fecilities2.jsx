@@ -113,7 +113,7 @@ const Home1Fecilities2 = () => {
     <>
       {/* <ToastContainer /> */}
       <Modal open={open} onClose={onCloseModal} center>
-            <form style={{ width: window.innerWidth <= 768 ? '80vw' : '30vw' }}>
+            <form className="formModal">
               <div className="form-inner mb-20">
                 <input
                   disabled
@@ -305,7 +305,7 @@ const Home1Fecilities2 = () => {
                                   <div className="card-content-bottom">
                                     <div className="price-area">
                                       <h6>Starting Form:</h6>
-                                      <span style={{ fontSize: window.innerWidth <= 768 ? '0.8rem' : '1.5rem' }}>₹ {item.price && item.price}</span>
+                                      <span className="formSpan">₹ {item.price && item.price}</span>
 
                                     </div>
                                     <div className="price-area">

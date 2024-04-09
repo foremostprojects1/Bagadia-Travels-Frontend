@@ -1,0 +1,22 @@
+/* formModal.module.css */
+.formModal {
+    width: 30vw; 
+    
+  }
+  
+  @media (max-width: 768px) {
+    .formModal {
+      width: 80vw;
+    }
+  }
+  
+  .formSpan {
+    /* Use both classes for targeting */
+    font-size: 1.5rem; /* Default font size for larger screens */
+  }
+  
+  @media (max-width: 768px) {
+    .formSpan {
+      font-size: 0.8rem; /* Font size for smaller screens */
+    }
+  }

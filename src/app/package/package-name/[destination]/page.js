@@ -11,6 +11,7 @@ import axios from "axios";
 import { useParams } from "next/navigation.js";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+import "./custom.css"
 
 import { toast, ToastContainer } from "react-toastify";
 const page = () => {
@@ -122,7 +123,7 @@ const page = () => {
         <>
           {/* <ToastContainer /> */}
           <Modal open={open} onClose={onCloseModal} center>
-            <form style={{ width: window.innerWidth <= 768 ? "80vw" : "30vw" }}>
+            <form className="formModal">
               <div className="form-inner mb-20">
                 <input
                   disabled
@@ -264,12 +265,7 @@ const page = () => {
                                   <div className="price-area">
                                     <h6>Starting Form:</h6>
                                     <span
-                                      style={{
-                                        fontSize:
-                                          window.innerWidth <= 768
-                                            ? "0.8rem"
-                                            : "1.5rem",
-                                      }}
+                                      className="formSpan"
                                     >
                                       ₹ {item.price && item.price}
                                     </span>

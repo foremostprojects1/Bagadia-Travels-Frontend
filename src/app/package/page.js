@@ -12,7 +12,7 @@ import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 
 import { toast, ToastContainer } from "react-toastify";
-
+import "./custom.css"
 const page = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -118,7 +118,7 @@ const page = () => {
         <>
           {/* <ToastContainer /> */}
           <Modal open={open} onClose={onCloseModal} center>
-            <form style={{ width: window.innerWidth <= 768 ? '80vw' : '30vw' }}>
+            <form className="formModal">
               <div className="form-inner mb-20">
                 <input
                   disabled
@@ -257,7 +257,7 @@ const page = () => {
                                 <div className="card-content-bottom">
                                   <div className="price-area">
                                     <h6>Starting Form:</h6>
-                                    <span style={{ fontSize: window.innerWidth <= 768 ? '0.8rem' : '1.5rem' }}>₹ {item.price && item.price}</span>
+                                    <span className="formSpan">₹ {item.price && item.price}</span>
 
                                   </div>
                                   <div className="price-area">
