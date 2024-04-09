@@ -53,9 +53,12 @@ const Page = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://bagadia-travels.onrender.com/api/v1/tour/deleteTour/${id}`, {
-        withCredentials: true,
-      });
+      await axios.delete(
+        `https://bagadia-travels.onrender.com/api/v1/tour/deleteTour/${id}`,
+        {
+          withCredentials: true,
+        }
+      );
 
       setData((prevData) => prevData.filter((item) => item._id !== id));
 
@@ -239,7 +242,7 @@ const Page = () => {
                             <th>Places</th>
                             <th>Days</th>
                             <th>Nights</th>
-                            <th>Delete Tour</th>
+                            <th>Options</th>
                           </tr>
                         </thead>
 
@@ -293,6 +296,23 @@ const Page = () => {
                                   <td data-label="Timeline">{item.nights}</td>
                                   <td>
                                     <button
+                                      onClick={() =>
+                                        router.push(`/update-tour/${item._id}`)
+                                      }
+                                    >
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="green"
+                                      >
+                                        <path d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z" />
+                                      </svg>
+                                    </button>
+                                  </td>
+                                  <td>
+                                    <button
                                       onClick={() => handleDelete(item._id)}
                                     >
                                       <svg
@@ -300,7 +320,7 @@ const Page = () => {
                                         width="24"
                                         height="24"
                                         viewBox="0 0 24 24"
-                                        fill="none"
+                                        fill="red"
                                         stroke="red"
                                         stroke-width="2"
                                         stroke-linecap="round"
@@ -315,48 +335,7 @@ const Page = () => {
                             ))}
                         </tbody>
                       </table>
-                      <div className="pagination-area">
-                        <ul className="paginations">
-                          <li className="page-item active">
-                            <a href="#">1</a>
-                          </li>
-                          <li className="page-item">
-                            <a href="#">2</a>
-                          </li>
-                          <li className="page-item">
-                            <a href="#">3</a>
-                          </li>
-                        </ul>
-                        <ul className="paginations-buttons">
-                          <li>
-                            <a href="#">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={7}
-                                height={14}
-                                viewBox="0 0 7 14"
-                              >
-                                <path d="M0 7.00008L7 0L2.54545 7.00008L7 14L0 7.00008Z" />
-                              </svg>
-                              Prev
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              Next
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width={7}
-                                height={14}
-                                viewBox="0 0 7 14"
-                                fill="none"
-                              >
-                                <path d="M7 7.00008L0 0L4.45455 7.00008L0 14L7 7.00008Z" />
-                              </svg>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>
@@ -365,8 +344,11 @@ const Page = () => {
             <div className="dashboard-footer">
               <div className="copyright-area">
                 <p>
-                  Copyright 2024 <a href="#">Bagadia Tours and Travels</a> | Design By{" "}
-                  <a href="https://www.foremostinfosystem.com/">Foremost Infosystem</a>
+                  Copyright 2024 <a href="#">Bagadia Tours and Travels</a> |
+                  Design By{" "}
+                  <a href="https://www.foremostinfosystem.com/">
+                    Foremost Infosystem
+                  </a>
                 </p>
               </div>
               {/* <ul className="footer-menu-list">

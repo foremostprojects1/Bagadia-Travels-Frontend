@@ -10,12 +10,15 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 
+import DatePicker from "react-datepicker";
+
 const page = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [country, setCountry] = useState("");
   const [transportMode, setTransportMode] = useState("");
   const [tourType, setTourType] = useState("");
+  const [tourDepartureDate, setTourDepartureDate] = useState("");
 
   const [images, setImages] = useState([]);
   const [numPlaces, setNumPlaces] = useState(0);
@@ -193,6 +196,7 @@ const page = () => {
       formData.append("modeDetails", JSON.stringify(modeDetails));
       formData.append("returnModeDetails", JSON.stringify(returnModeDetails));
       formData.append("tourType", tourType);
+      formData.append("tourDepartureDate", tourDepartureDate);
       //   for (var key of formData.entries()) {
       //     console.log(key[0] + ', ' + key[1]);
       // }
@@ -235,6 +239,7 @@ const page = () => {
           setIncluded("");
           setExcluded("");
           setTourType("");
+          setTourDepartureDate("")
         })
         .catch((error) => {
           console.log(error);
@@ -267,6 +272,7 @@ const page = () => {
           setIncluded("");
           setExcluded("");
           setTourType("");
+          setTourDepartureDate("")
         });
     } catch (e) {
       // toast.error(e.message, {
@@ -454,6 +460,25 @@ const page = () => {
                       <option value="Private Van Tour">Private Van Tour</option>
                     </select>
                   </div>
+
+                  {tourType == "Group Tour" && (
+                    <>
+                      <div
+                        className="form-inner mb-20"
+                        style={{ width: "40vw", margin: "1vmax auto" }}
+                      >
+                        <label htmlFor="tourType" style={{ fontSize: "1vmax" }}>
+                          Tour Departure Date
+                        </label>
+                        <DatePicker
+                          selected={tourDepartureDate}
+                          onChange={(date) => setTourDepartureDate(date)}
+                          dateFormat="dd/MM/yyyy"
+                          minDate={new Date()}
+                        />
+                      </div>
+                    </>
+                  )}
                   <div
                     className="form-inner mb-20"
                     style={{ width: "40vw", margin: "1vmax auto" }}

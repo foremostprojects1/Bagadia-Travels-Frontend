@@ -257,6 +257,14 @@ const Page = () => {
                     <h3>₹ {data && data.price}/</h3>
                     <span>per person</span>
                   </div>
+                  <div className="tour-price">
+                  {data.tourType == "Group Tour" && data.tourDepartureDate!=null && (
+                    <>
+                      <span>Date Of Group Tour : </span>
+                      <h6>{data &&  data.tourDepartureDate.split("T")[0]}</h6>
+                    </>
+                  )}
+                  </div>
 
                   <ul className="tour-info-metalist">
                     <li>
@@ -297,6 +305,8 @@ const Page = () => {
                       {data.country && data.country}
                     </li>
                   </ul>
+
+                  
                   <p>{data && data.tourDescription}</p>
                   <h4>Included</h4>
                   <div className="includ-and-exclud-area mb-20">
