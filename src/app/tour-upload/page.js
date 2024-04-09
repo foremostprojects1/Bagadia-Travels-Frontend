@@ -200,9 +200,13 @@ const page = () => {
       //   console.log("FormData => " + JSON.stringify(formData));
 
       await axios
-        .post("https://bagadia-travels.onrender.com/api/v1/tour/create", formData, {
-          withCredentials: true,
-        })
+        .post(
+          "https://bagadia-travels.onrender.com/api/v1/tour/create",
+          formData,
+          {
+            withCredentials: true,
+          }
+        )
         .then((response) => {
           alert(response.data.message, {
             position: "top-right",
@@ -469,6 +473,7 @@ const page = () => {
                       <option value="flight">Flight</option>
                       <option value="bus">Bus</option>
                       <option value="train">Train</option>
+                      <option value="land">Land</option>
                     </select>
                   </div>
                   <div
@@ -585,35 +590,27 @@ const page = () => {
                         </div>
                       </div>
                     ))}
-
-                  <div
-                    className="form-inner mb-20"
-                    style={{
-                      width: "40vw",
-                      margin: "1vmax auto",
-                      display: "flex",
-                    }}
-                  >
-                    <label htmlFor="numStops">
-                      Number of Stops For Departure:
-                    </label>
-                    <input
-                      type="number"
-                      id="numStops"
-                      value={numStops}
-                      onChange={handleNumStopsChange}
-                    />
-                  </div>
-                  {numStops >= 0 && (
-                    <div
-                      className="form-inner mb-20"
-                      style={{
-                        width: "40vw",
-                        margin: "1vmax auto",
-                        display: "flex",
-                      }}
-                    >
-                      {[...Array(numStops + 1)].map((_, index) => (
+                  {transportMode !== "land" && (
+                    <>
+                      <div
+                        className="form-inner mb-20"
+                        style={{
+                          width: "40vw",
+                          margin: "1vmax auto",
+                          display: "flex",
+                        }}
+                      >
+                        <label htmlFor="numStops">
+                          Number of Stops For Departure:
+                        </label>
+                        <input
+                          type="number"
+                          id="numStops"
+                          value={numStops}
+                          onChange={handleNumStopsChange}
+                        />
+                      </div>
+                      {numStops >= 0 && (
                         <div
                           className="form-inner mb-20"
                           style={{
@@ -622,127 +619,131 @@ const page = () => {
                             display: "flex",
                           }}
                         >
-                          <div key={index} style={{ marginRight: "1rem" }}>
-                            <h4>Travel {index + 1} Details:</h4>
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} Name`}
-                                value={modeDetails[index]?.name || ""}
-                                onChange={(e) =>
-                                  handleModeDetailsChange(
-                                    index,
-                                    "name",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} Number`}
-                                value={modeDetails[index]?.number || ""}
-                                onChange={(e) =>
-                                  handleModeDetailsChange(
-                                    index,
-                                    "number",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} From`}
-                                value={modeDetails[index]?.from || ""}
-                                onChange={(e) =>
-                                  handleModeDetailsChange(
-                                    index,
-                                    "from",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
+                          {[...Array(numStops + 1)].map((_, index) => (
+                            <div
+                              className="form-inner mb-20"
+                              style={{
+                                width: "40vw",
+                                margin: "1vmax auto",
+                                display: "flex",
+                              }}
+                            >
+                              <div key={index} style={{ marginRight: "1rem" }}>
+                                <h4>Travel {index + 1} Details:</h4>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} Name`}
+                                    value={modeDetails[index]?.name || ""}
+                                    onChange={(e) =>
+                                      handleModeDetailsChange(
+                                        index,
+                                        "name",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} Number`}
+                                    value={modeDetails[index]?.number || ""}
+                                    onChange={(e) =>
+                                      handleModeDetailsChange(
+                                        index,
+                                        "number",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} From`}
+                                    value={modeDetails[index]?.from || ""}
+                                    onChange={(e) =>
+                                      handleModeDetailsChange(
+                                        index,
+                                        "from",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
 
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} Departure Time`}
-                                value={modeDetails[index]?.departureTime || ""}
-                                onChange={(e) =>
-                                  handleModeDetailsChange(
-                                    index,
-                                    "departureTime",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} To`}
-                                value={modeDetails[index]?.to || ""}
-                                onChange={(e) =>
-                                  handleModeDetailsChange(
-                                    index,
-                                    "to",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} Departure Time`}
+                                    value={
+                                      modeDetails[index]?.departureTime || ""
+                                    }
+                                    onChange={(e) =>
+                                      handleModeDetailsChange(
+                                        index,
+                                        "departureTime",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} To`}
+                                    value={modeDetails[index]?.to || ""}
+                                    onChange={(e) =>
+                                      handleModeDetailsChange(
+                                        index,
+                                        "to",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
 
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} Arrival Time`}
-                                value={modeDetails[index]?.arrivalTime || ""}
-                                onChange={(e) =>
-                                  handleModeDetailsChange(
-                                    index,
-                                    "arrivalTime",
-                                    e.target.value
-                                  )
-                                }
-                              />
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} Arrival Time`}
+                                    value={
+                                      modeDetails[index]?.arrivalTime || ""
+                                    }
+                                    onChange={(e) =>
+                                      handleModeDetailsChange(
+                                        index,
+                                        "arrivalTime",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
+                              </div>
                             </div>
-                          </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
-                  )}
-                  <div
-                    className="form-inner mb-20"
-                    style={{
-                      width: "40vw",
-                      margin: "1vmax auto",
-                      display: "flex",
-                    }}
-                  >
-                    <label htmlFor="numStops">
-                      Number of Stops For Return:
-                    </label>
-                    <input
-                      type="number"
-                      id="numStops"
-                      value={returnNumStops}
-                      onChange={handleReturnNumStopsChange}
-                    />
-                  </div>
-                  {returnNumStops >= 0 && (
-                    <div
-                      className="form-inner mb-20"
-                      style={{
-                        width: "40vw",
-                        margin: "1vmax auto",
-                        display: "flex",
-                      }}
-                    >
-                      {[...Array(returnNumStops + 1)].map((_, index) => (
+                      )}
+                      <div
+                        className="form-inner mb-20"
+                        style={{
+                          width: "40vw",
+                          margin: "1vmax auto",
+                          display: "flex",
+                        }}
+                      >
+                        <label htmlFor="numStops">
+                          Number of Stops For Return:
+                        </label>
+                        <input
+                          type="number"
+                          id="numStops"
+                          value={returnNumStops}
+                          onChange={handleReturnNumStopsChange}
+                        />
+                      </div>
+                      {returnNumStops >= 0 && (
                         <div
                           className="form-inner mb-20"
                           style={{
@@ -751,104 +752,118 @@ const page = () => {
                             display: "flex",
                           }}
                         >
-                          <div key={index} style={{ marginRight: "1rem" }}>
-                            <h4>Travel {index + 1} Details:</h4>
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} Name`}
-                                value={returnModeDetails[index]?.name || ""}
-                                onChange={(e) =>
-                                  handleReturnModeDetailsChange(
-                                    index,
-                                    "name",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} Number`}
-                                value={returnModeDetails[index]?.number || ""}
-                                onChange={(e) =>
-                                  handleReturnModeDetailsChange(
-                                    index,
-                                    "number",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} From`}
-                                value={returnModeDetails[index]?.from || ""}
-                                onChange={(e) =>
-                                  handleReturnModeDetailsChange(
-                                    index,
-                                    "from",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
+                          {[...Array(returnNumStops + 1)].map((_, index) => (
+                            <div
+                              className="form-inner mb-20"
+                              style={{
+                                width: "40vw",
+                                margin: "1vmax auto",
+                                display: "flex",
+                              }}
+                            >
+                              <div key={index} style={{ marginRight: "1rem" }}>
+                                <h4>Travel {index + 1} Details:</h4>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} Name`}
+                                    value={returnModeDetails[index]?.name || ""}
+                                    onChange={(e) =>
+                                      handleReturnModeDetailsChange(
+                                        index,
+                                        "name",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} Number`}
+                                    value={
+                                      returnModeDetails[index]?.number || ""
+                                    }
+                                    onChange={(e) =>
+                                      handleReturnModeDetailsChange(
+                                        index,
+                                        "number",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} From`}
+                                    value={returnModeDetails[index]?.from || ""}
+                                    onChange={(e) =>
+                                      handleReturnModeDetailsChange(
+                                        index,
+                                        "from",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
 
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} Departure Time`}
-                                value={
-                                  returnModeDetails[index]?.departureTime || ""
-                                }
-                                onChange={(e) =>
-                                  handleReturnModeDetailsChange(
-                                    index,
-                                    "departureTime",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} To`}
-                                value={returnModeDetails[index]?.to || ""}
-                                onChange={(e) =>
-                                  handleReturnModeDetailsChange(
-                                    index,
-                                    "to",
-                                    e.target.value
-                                  )
-                                }
-                              />
-                            </div>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} Departure Time`}
+                                    value={
+                                      returnModeDetails[index]?.departureTime ||
+                                      ""
+                                    }
+                                    onChange={(e) =>
+                                      handleReturnModeDetailsChange(
+                                        index,
+                                        "departureTime",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} To`}
+                                    value={returnModeDetails[index]?.to || ""}
+                                    onChange={(e) =>
+                                      handleReturnModeDetailsChange(
+                                        index,
+                                        "to",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
 
-                            <div className="form-inner mb-20">
-                              <input
-                                type="text"
-                                placeholder={`${transportMode} Arrival Time`}
-                                value={
-                                  returnModeDetails[index]?.arrivalTime || ""
-                                }
-                                onChange={(e) =>
-                                  handleReturnModeDetailsChange(
-                                    index,
-                                    "arrivalTime",
-                                    e.target.value
-                                  )
-                                }
-                              />
+                                <div className="form-inner mb-20">
+                                  <input
+                                    type="text"
+                                    placeholder={`${transportMode} Arrival Time`}
+                                    value={
+                                      returnModeDetails[index]?.arrivalTime ||
+                                      ""
+                                    }
+                                    onChange={(e) =>
+                                      handleReturnModeDetailsChange(
+                                        index,
+                                        "arrivalTime",
+                                        e.target.value
+                                      )
+                                    }
+                                  />
+                                </div>
+                              </div>
                             </div>
-                          </div>
+                          ))}
                         </div>
-                      ))}
-                    </div>
+                      )}
+                    </>
                   )}
-
                   <button
                     type="submit"
                     style={{ width: "40vw", margin: "auto", display: "block" }}

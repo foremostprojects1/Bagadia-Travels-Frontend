@@ -118,19 +118,19 @@ const page = () => {
         <>
           {/* <ToastContainer /> */}
           <Modal open={open} onClose={onCloseModal} center>
-            <form style={{ width: "20vw" }}>
+            <form style={{ width: window.innerWidth <= 768 ? '80vw' : '30vw' }}>
               <div className="form-inner mb-20">
                 <input
                   disabled
                   type="text"
-                  style={{ fontSize: "1vw" }}
+                  style={{ fontSize: "1.5vw" }}
                   placeholder={tourTitle}
                 />
               </div>
               <div className="form-inner mb-20">
                 <input
                   type="text"
-                  style={{ fontSize: "1vw" }}
+                  style={{ fontSize: "1.5vw" }}
                   placeholder="Full Name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -139,7 +139,7 @@ const page = () => {
               <div className="form-inner mb-20">
                 <input
                   type="tel"
-                  style={{ fontSize: "1vw" }}
+                  style={{ fontSize: "1.5vw" }}
                   placeholder="Contact Number"
                   value={contactNumber}
                   onChange={(e) => setContactNumber(e.target.value)}
@@ -257,7 +257,8 @@ const page = () => {
                                 <div className="card-content-bottom">
                                   <div className="price-area">
                                     <h6>Starting Form:</h6>
-                                    <span>₹ {item.price && item.price}</span>
+                                    <span style={{ fontSize: window.innerWidth <= 768 ? '0.8rem' : '1.5rem' }}>₹ {item.price && item.price}</span>
+
                                   </div>
                                   <div className="price-area">
                                     <h6>Mode Of Conveyance:</h6>

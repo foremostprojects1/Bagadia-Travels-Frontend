@@ -406,7 +406,7 @@ const RightSidebar = ({ toggleRightSidebar, isRightSidebar }) => {
             <div className="content">
               <span>To More Inquiry</span>
               <h6>
-                <a href="tel:+990737621432">+ 777-799-6708</a>
+                <a href="tel:+7777996708">+ 91 7777-99-6708</a>
               </h6>
             </div>
           </div>

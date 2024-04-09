@@ -844,7 +844,7 @@ onClick={() => setOpenModalVideo(true)}><i className="bi bi-play-circle" /> Watc
                     </div>
                     <div className="content">
                       <span>To More Inquiry</span>
-                      <h6><a href="tel:+990737621432">+990-737 621 432</a></h6>
+                      <h6><a href="tel:+7777996708">+990-737 621 432</a></h6>
                     </div>
                   </div>
                 </div>

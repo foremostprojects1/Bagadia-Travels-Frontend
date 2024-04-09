@@ -97,7 +97,7 @@ const page = () => {
                 </div>
                 <div className="content">
                   <h6>
-                    <a href="tel:">+ 777-799-6708</a>
+                    <a href="tel:">+ 91 7777-99-6708</a>
                   </h6>
                 </div>
               </div>

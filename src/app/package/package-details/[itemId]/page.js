@@ -55,9 +55,13 @@ const Page = () => {
       };
 
       const response = await axios
-        .post("https://bagadia-travels.onrender.com/api/v1/inquiry/addInquiry", formData, {
-          withCredentials: true,
-        })
+        .post(
+          "https://bagadia-travels.onrender.com/api/v1/inquiry/addInquiry",
+          formData,
+          {
+            withCredentials: true,
+          }
+        )
         .then((response) => {
           console.log(response);
           toast.success(response.data.message);
@@ -96,7 +100,9 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const response = await axios
-          .get(`https://bagadia-travels.onrender.com/api/v1/tour/getTour/${itemId}`)
+          .get(
+            `https://bagadia-travels.onrender.com/api/v1/tour/getTour/${itemId}`
+          )
           .then((response) => {
             setData(response.data.tour);
             // console.log("Data " + JSON.stringify(response.data));
@@ -380,97 +386,103 @@ const Page = () => {
                         </div>
                       ))}
                   </div>
-
-                  <h4>{!isLoading && data && data.transportMode} Details:</h4>
-                  {!isLoading &&
-                    data &&
-                    data.modeDetails.map((detail, index) => (
-                      <div
-                        key={index}
-                        style={{
-                          width: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <div
-                          className="ticket inverse"
-                          style={{
-                            display: "inline-block",
-                            width: "350px",
-                            margin: "20px",
-                            backgroundColor: "#273138",
-                            borderRadius: "10px",
-                            color: "#fff",
-                            fontFamily: "Helvetica Neue",
-                            fontWeight: "300",
-                            letterSpacing: "1px",
-                            boxShadow: "0 0 10px rgba(0,0,0,0.5)",
-                          }}
-                        >
-                          <header
+                  {data.transportMode !== "land" && (
+                    <>
+                      <h4>
+                        {!isLoading && data && data.transportMode} Details:
+                      </h4>
+                      {!isLoading &&
+                        data &&
+                        data.modeDetails.map((detail, index) => (
+                          <div
+                            key={index}
                             style={{
-                              position: "relative",
-                              height: "60px",
-                              backgroundColor: "#1B252E",
-                              padding: "10px",
-                              borderRadius: "10px",
-                            }}
-                          >
-                            <div
-                              className="company-name"
-                              style={{ lineHeight: "35px", textAlign: "left" }}
-                            >
-                              {detail.name}
-                            </div>
-                            <div
-                              className="gate"
-                              style={{
-                                position: "absolute",
-                                right: "15px",
-                                top: "15px",
-                                fontWeight: "400",
-                                lineHeight: "18px",
-                                textAlign: "center",
-                                fontSize: "17px",
-                              }}
-                            >
-                              {/* <div>Number</div> */}
-                              <div>{detail.number}</div>
-                            </div>
-                          </header>
-                          <section
-                            className="airports"
-                            style={{
-                              padding: "5px 10px 10px 10px",
-                              height: "150px",
-                              textAlign: "center",
+                              width: "100%",
                               display: "flex",
-                              justifyContent: "space-between",
-                              position: "relative",
+                              alignItems: "center",
+                              justifyContent: "center",
                             }}
                           >
                             <div
-                              className="airport"
+                              className="ticket inverse"
                               style={{
-                                position: "relative",
-                                margin: "10px",
-                                textAlign: "center",
                                 display: "inline-block",
+                                width: "350px",
+                                margin: "20px",
+                                backgroundColor: "#273138",
+                                borderRadius: "10px",
+                                color: "#fff",
+                                fontFamily: "Helvetica Neue",
+                                fontWeight: "300",
+                                letterSpacing: "1px",
+                                boxShadow: "0 0 10px rgba(0,0,0,0.5)",
                               }}
                             >
-                              <div
-                                className="airport-name"
+                              <header
                                 style={{
-                                  color: "#29A8EB",
-                                  fontSize: "22px",
-                                  fontWeight: "400",
+                                  position: "relative",
+                                  height: "60px",
+                                  backgroundColor: "#1B252E",
+                                  padding: "10px",
+                                  borderRadius: "10px",
                                 }}
                               >
-                                {detail.from}
-                              </div>
-                              {/* <div
+                                <div
+                                  className="company-name"
+                                  style={{
+                                    lineHeight: "35px",
+                                    textAlign: "left",
+                                  }}
+                                >
+                                  {detail.name}
+                                </div>
+                                <div
+                                  className="gate"
+                                  style={{
+                                    position: "absolute",
+                                    right: "15px",
+                                    top: "15px",
+                                    fontWeight: "400",
+                                    lineHeight: "18px",
+                                    textAlign: "center",
+                                    fontSize: "17px",
+                                  }}
+                                >
+                                  {/* <div>Number</div> */}
+                                  <div>{detail.number}</div>
+                                </div>
+                              </header>
+                              <section
+                                className="airports"
+                                style={{
+                                  padding: "5px 10px 10px 10px",
+                                  height: "150px",
+                                  textAlign: "center",
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  className="airport"
+                                  style={{
+                                    position: "relative",
+                                    margin: "10px",
+                                    textAlign: "center",
+                                    display: "inline-block",
+                                  }}
+                                >
+                                  <div
+                                    className="airport-name"
+                                    style={{
+                                      color: "#29A8EB",
+                                      fontSize: "22px",
+                                      fontWeight: "400",
+                                    }}
+                                  >
+                                    {detail.from}
+                                  </div>
+                                  {/* <div
                                 className="airport-code"
                                 style={{
                                   fontSize: "32px",
@@ -480,43 +492,43 @@ const Page = () => {
                               >
                                 {detail.fromAirportCode}
                               </div> */}
-                              <div
-                                className="dep-arr-label"
-                                style={{
-                                  color: "#9299A0",
-                                  fontSize: "12px",
-                                  fontWeight: "500",
-                                }}
-                              >
-                                Departing
-                              </div>
-                              <div
-                                className="time"
-                                style={{ fontSize: "17px", color: "#fff" }}
-                              >
-                                {detail.departureTime}
-                              </div>
-                            </div>
-                            <div
-                              className="airport"
-                              style={{
-                                position: "relative",
-                                margin: "10px",
-                                textAlign: "center",
-                                display: "inline-block",
-                              }}
-                            >
-                              <div
-                                className="airport-name"
-                                style={{
-                                  color: "#29A8EB",
-                                  fontSize: "22px",
-                                  fontWeight: "400",
-                                }}
-                              >
-                                {detail.to}
-                              </div>
-                              {/* <div
+                                  <div
+                                    className="dep-arr-label"
+                                    style={{
+                                      color: "#9299A0",
+                                      fontSize: "12px",
+                                      fontWeight: "500",
+                                    }}
+                                  >
+                                    Departing
+                                  </div>
+                                  <div
+                                    className="time"
+                                    style={{ fontSize: "17px", color: "#fff" }}
+                                  >
+                                    {detail.departureTime}
+                                  </div>
+                                </div>
+                                <div
+                                  className="airport"
+                                  style={{
+                                    position: "relative",
+                                    margin: "10px",
+                                    textAlign: "center",
+                                    display: "inline-block",
+                                  }}
+                                >
+                                  <div
+                                    className="airport-name"
+                                    style={{
+                                      color: "#29A8EB",
+                                      fontSize: "22px",
+                                      fontWeight: "400",
+                                    }}
+                                  >
+                                    {detail.to}
+                                  </div>
+                                  {/* <div
                                 className="airport-code"
                                 style={{
                                   fontSize: "32px",
@@ -526,118 +538,124 @@ const Page = () => {
                               >
                                 {detail.toAirportCode}
                               </div> */}
-                              <div
-                                className="dep-arr-label"
-                                style={{
-                                  color: "#9299A0",
-                                  fontSize: "12px",
-                                  fontWeight: "500",
-                                }}
-                              >
-                                Arriving
-                              </div>
-                              <div
-                                className="time"
-                                style={{ fontSize: "17px", color: "#fff" }}
-                              >
-                                {detail.arrivalTime}
-                              </div>
+                                  <div
+                                    className="dep-arr-label"
+                                    style={{
+                                      color: "#9299A0",
+                                      fontSize: "12px",
+                                      fontWeight: "500",
+                                    }}
+                                  >
+                                    Arriving
+                                  </div>
+                                  <div
+                                    className="time"
+                                    style={{ fontSize: "17px", color: "#fff" }}
+                                  >
+                                    {detail.arrivalTime}
+                                  </div>
+                                </div>
+                              </section>
                             </div>
-                          </section>
-                        </div>
-                      </div>
-                    ))}
+                          </div>
+                        ))}
 
-                  <h4>Return {!isLoading && data && data.transportMode} Details:</h4>
-                  {!isLoading &&
-                    data &&
-                    data.returnModeDetails.map((detail, index) => (
-                      <div
-                        key={index}
-                        style={{
-                          width: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <div
-                          className="ticket inverse"
-                          style={{
-                            display: "inline-block",
-                            width: "350px",
-                            margin: "20px",
-                            backgroundColor: "#273138",
-                            borderRadius: "10px",
-                            color: "#fff",
-                            fontFamily: "Helvetica Neue",
-                            fontWeight: "300",
-                            letterSpacing: "1px",
-                            boxShadow: "0 0 10px rgba(0,0,0,0.5)",
-                          }}
-                        >
-                          <header
+                      <h4>
+                        Return {!isLoading && data && data.transportMode}{" "}
+                        Details:
+                      </h4>
+                      {!isLoading &&
+                        data &&
+                        data.returnModeDetails.map((detail, index) => (
+                          <div
+                            key={index}
                             style={{
-                              position: "relative",
-                              height: "60px",
-                              backgroundColor: "#1B252E",
-                              padding: "10px",
-                              borderRadius: "10px",
-                            }}
-                          >
-                            <div
-                              className="company-name"
-                              style={{ lineHeight: "35px", textAlign: "left" }}
-                            >
-                              {detail.name}
-                            </div>
-                            <div
-                              className="gate"
-                              style={{
-                                position: "absolute",
-                                right: "15px",
-                                top: "15px",
-                                fontWeight: "400",
-                                lineHeight: "18px",
-                                textAlign: "center",
-                                fontSize: "17px",
-                              }}
-                            >
-                              {/* <div>Number</div> */}
-                              <div>{detail.number}</div>
-                            </div>
-                          </header>
-                          <section
-                            className="airports"
-                            style={{
-                              padding: "5px 10px 10px 10px",
-                              height: "150px",
-                              textAlign: "center",
+                              width: "100%",
                               display: "flex",
-                              justifyContent: "space-between",
-                              position: "relative",
+                              alignItems: "center",
+                              justifyContent: "center",
                             }}
                           >
                             <div
-                              className="airport"
+                              className="ticket inverse"
                               style={{
-                                position: "relative",
-                                margin: "10px",
-                                textAlign: "center",
                                 display: "inline-block",
+                                width: "350px",
+                                margin: "20px",
+                                backgroundColor: "#273138",
+                                borderRadius: "10px",
+                                color: "#fff",
+                                fontFamily: "Helvetica Neue",
+                                fontWeight: "300",
+                                letterSpacing: "1px",
+                                boxShadow: "0 0 10px rgba(0,0,0,0.5)",
                               }}
                             >
-                              <div
-                                className="airport-name"
+                              <header
                                 style={{
-                                  color: "#29A8EB",
-                                  fontSize: "22px",
-                                  fontWeight: "400",
+                                  position: "relative",
+                                  height: "60px",
+                                  backgroundColor: "#1B252E",
+                                  padding: "10px",
+                                  borderRadius: "10px",
                                 }}
                               >
-                                {detail.from}
-                              </div>
-                              {/* <div
+                                <div
+                                  className="company-name"
+                                  style={{
+                                    lineHeight: "35px",
+                                    textAlign: "left",
+                                  }}
+                                >
+                                  {detail.name}
+                                </div>
+                                <div
+                                  className="gate"
+                                  style={{
+                                    position: "absolute",
+                                    right: "15px",
+                                    top: "15px",
+                                    fontWeight: "400",
+                                    lineHeight: "18px",
+                                    textAlign: "center",
+                                    fontSize: "17px",
+                                  }}
+                                >
+                                  {/* <div>Number</div> */}
+                                  <div>{detail.number}</div>
+                                </div>
+                              </header>
+                              <section
+                                className="airports"
+                                style={{
+                                  padding: "5px 10px 10px 10px",
+                                  height: "150px",
+                                  textAlign: "center",
+                                  display: "flex",
+                                  justifyContent: "space-between",
+                                  position: "relative",
+                                }}
+                              >
+                                <div
+                                  className="airport"
+                                  style={{
+                                    position: "relative",
+                                    margin: "10px",
+                                    textAlign: "center",
+                                    display: "inline-block",
+                                  }}
+                                >
+                                  <div
+                                    className="airport-name"
+                                    style={{
+                                      color: "#29A8EB",
+                                      fontSize: "22px",
+                                      fontWeight: "400",
+                                    }}
+                                  >
+                                    {detail.from}
+                                  </div>
+                                  {/* <div
                                 className="airport-code"
                                 style={{
                                   fontSize: "32px",
@@ -647,65 +665,66 @@ const Page = () => {
                               >
                                 {detail.fromAirportCode}
                               </div> */}
-                              <div
-                                className="dep-arr-label"
-                                style={{
-                                  color: "#9299A0",
-                                  fontSize: "12px",
-                                  fontWeight: "500",
-                                }}
-                              >
-                                Departing
-                              </div>
-                              <div
-                                className="time"
-                                style={{ fontSize: "17px", color: "#fff" }}
-                              >
-                                {detail.departureTime}
-                              </div>
-                            </div>
-                            <div
-                              className="airport"
-                              style={{
-                                position: "relative",
-                                margin: "10px",
-                                textAlign: "center",
-                                display: "inline-block",
-                              }}
-                            >
-                              <div
-                                className="airport-name"
-                                style={{
-                                  color: "#29A8EB",
-                                  fontSize: "22px",
-                                  fontWeight: "400",
-                                }}
-                              >
-                                {detail.to}
-                              </div>
-                              
-                              <div
-                                className="dep-arr-label"
-                                style={{
-                                  color: "#9299A0",
-                                  fontSize: "12px",
-                                  fontWeight: "500",
-                                }}
-                              >
-                                Arriving
-                              </div>
-                              <div
-                                className="time"
-                                style={{ fontSize: "17px", color: "#fff" }}
-                              >
-                                {detail.arrivalTime}
-                              </div>
-                            </div>
-                          </section>
-                        </div>
-                      </div>
-                    ))}
+                                  <div
+                                    className="dep-arr-label"
+                                    style={{
+                                      color: "#9299A0",
+                                      fontSize: "12px",
+                                      fontWeight: "500",
+                                    }}
+                                  >
+                                    Departing
+                                  </div>
+                                  <div
+                                    className="time"
+                                    style={{ fontSize: "17px", color: "#fff" }}
+                                  >
+                                    {detail.departureTime}
+                                  </div>
+                                </div>
+                                <div
+                                  className="airport"
+                                  style={{
+                                    position: "relative",
+                                    margin: "10px",
+                                    textAlign: "center",
+                                    display: "inline-block",
+                                  }}
+                                >
+                                  <div
+                                    className="airport-name"
+                                    style={{
+                                      color: "#29A8EB",
+                                      fontSize: "22px",
+                                      fontWeight: "400",
+                                    }}
+                                  >
+                                    {detail.to}
+                                  </div>
 
+                                  <div
+                                    className="dep-arr-label"
+                                    style={{
+                                      color: "#9299A0",
+                                      fontSize: "12px",
+                                      fontWeight: "500",
+                                    }}
+                                  >
+                                    Arriving
+                                  </div>
+                                  <div
+                                    className="time"
+                                    style={{ fontSize: "17px", color: "#fff" }}
+                                  >
+                                    {detail.arrivalTime}
+                                  </div>
+                                </div>
+                              </section>
+                            </div>
+                          </div>
+                        ))}
+                    </>
+                  )}
                   <div className="tour-location">
                     <h4>Location Map</h4>
                     <div className="map-area mb-30">
@@ -943,7 +962,7 @@ const Page = () => {
                           <div className="content">
                             <span>To More Inquiry</span>
                             <h6>
-                              <a href="tel:+990737621432">+777-799-6708</a>
+                              <a href="tel:+7777996708">+91 7777-99-6708</a>
                             </h6>
                           </div>
                         </div>

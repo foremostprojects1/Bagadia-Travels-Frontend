@@ -271,7 +271,7 @@ const Header2 = () => {
             <div className="content">
               <span>To More Inquiry</span>
               <h6>
-                <a href="tel:+990737621432">+990-737 621 432</a>
+                <a href="tel:+7777996708">+990-737 621 432</a>
               </h6>
             </div>
           </div>
@@ -650,7 +650,7 @@ const Header2 = () => {
             <div className="content">
               <span>To More Inquiry</span>
               <h6>
-                <a href="tel:+990737621432">+990-737 621 432</a>
+                <a href="tel:+7777996708">+990-737 621 432</a>
               </h6>
             </div>
           </div>
