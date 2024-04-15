@@ -258,12 +258,15 @@ const Page = () => {
                     <span>per person</span>
                   </div>
                   <div className="tour-price">
-                  {data.tourType == "Group Tour" && data.tourDepartureDate!=null && (
-                    <>
-                      <span>Date Of Group Tour : </span>
-                      <h6>{data &&  data.tourDepartureDate.split("T")[0]}</h6>
-                    </>
-                  )}
+                    {data.tourType == "Group Tour" &&
+                      data.tourDepartureDate != null && (
+                        <>
+                          <span>Date Of Group Tour : </span>
+                          <h6>
+                            {data && data.tourDepartureDate.split("T")[0]}
+                          </h6>
+                        </>
+                      )}
                   </div>
 
                   <ul className="tour-info-metalist">
@@ -306,7 +309,6 @@ const Page = () => {
                     </li>
                   </ul>
 
-                  
                   <p>{data && data.tourDescription}</p>
                   <h4>Included</h4>
                   <div className="includ-and-exclud-area mb-20">
@@ -396,6 +398,44 @@ const Page = () => {
                         </div>
                       ))}
                   </div>
+                  {data.hotelDetails && data.hotelDetails.length > 0 && (
+                    <>
+                      <h4>Hotels</h4>
+                      <div className="accordion tour-plan" id="tourHotels">
+                        {!isLoading &&
+                          data.hotelDetails &&
+                          data.hotelDetails.map((item, index) => (
+                            <div className="accordion-item">
+                              <h2 className="accordion-header" id="headingOne">
+                                <button
+                                  className="accordion-button"
+                                  type="button"
+                                  data-bs-toggle="collapse"
+                                  data-bs-target="#collapseOne"
+                                  aria-expanded="true"
+                                  aria-controls="collapseOne"
+                                >
+                                  <span>{index+1}</span>
+                                  {item.hotelName} - {item.cityName}
+                                </button>
+                              </h2>
+                              <div
+                                id="collapseOne"
+                                className="accordion-collapse collapse show"
+                                aria-labelledby="headingOne"
+                                data-bs-parent="#tourHotels"
+                              >
+                                <div className="accordion-body">
+                                  <p>Room Type - {item.roomType}</p>
+                                  <p>Check In - {item.checkIn}</p>
+                                  <p>Check Out - {item.checkOut}</p>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                      </div>
+                    </>
+                  )}
                   {data.transportMode !== "land" && (
                     <>
                       <h4>

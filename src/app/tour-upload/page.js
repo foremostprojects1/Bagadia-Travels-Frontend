@@ -36,15 +36,32 @@ const page = () => {
   const [numStops, setNumStops] = useState(0);
   const [returnNumStops, setReturnNumStops] = useState(0);
 
+  const [numStay, setNumStay] = useState(0);
+
   const handleNumStopsChange = (e) => {
     const stops = parseInt(e.target.value);
     setNumStops(stops);
+  };
+  const handleNumStaysChange = (e) => {
+    const stay = parseInt(e.target.value);
+    setNumStay(stay);
   };
 
   const handleReturnNumStopsChange = (e) => {
     const stops = parseInt(e.target.value);
     setReturnNumStops(stops);
   };
+
+  const [hotelDetails, setHotelDetails] = useState(() => {
+    const initialDetails = Array.from({ length: numStay }, () => ({
+      cityName: "",
+      hotelName: "",
+      roomType: "",
+      checkIn: "",
+      checkOut: "",
+    }));
+    return initialDetails;
+  });
 
   const [modeDetails, setModeDetails] = useState(() => {
     const initialDetails = Array.from({ length: numStops + 1 }, () => ({
@@ -69,6 +86,30 @@ const page = () => {
     }));
     return initialDetails;
   });
+
+  const handleHotelDetailsChange = (index, field, value) => {
+    setHotelDetails((prevModeDetails) => {
+      // Ensure the index is within bounds or equal to the length of the array
+      if (index >= 0 && index <= prevModeDetails.length) {
+        const updatedDetails = [...prevModeDetails];
+        // If index equals the length, it means adding a new element
+        if (index === prevModeDetails.length) {
+          updatedDetails.push({
+            cityName: "",
+            hotelName: "",
+            roomType: "",
+            checkIn: "",
+            checkOut: "",
+          });
+        }
+        updatedDetails[index][field] = value;
+        return updatedDetails;
+      } else {
+        console.error(`Index ${index} is out of bounds.`);
+        return prevModeDetails; // Return the original array if index is invalid
+      }
+    });
+  };
 
   const handleModeDetailsChange = (index, field, value) => {
     setModeDetails((prevModeDetails) => {
@@ -195,6 +236,7 @@ const page = () => {
       formData.append("transportMode", transportMode);
       formData.append("modeDetails", JSON.stringify(modeDetails));
       formData.append("returnModeDetails", JSON.stringify(returnModeDetails));
+      formData.append("hotelDetails", JSON.stringify(hotelDetails));
       formData.append("tourType", tourType);
       formData.append("tourDepartureDate", tourDepartureDate);
       //   for (var key of formData.entries()) {
@@ -205,6 +247,7 @@ const page = () => {
 
       await axios
         .post(
+          // "http://localhost:4000/api/v1/tour/create",
           "https://bagadia-travels.onrender.com/api/v1/tour/create",
           formData,
           {
@@ -239,7 +282,7 @@ const page = () => {
           setIncluded("");
           setExcluded("");
           setTourType("");
-          setTourDepartureDate("")
+          setTourDepartureDate("");
         })
         .catch((error) => {
           console.log(error);
@@ -272,7 +315,7 @@ const page = () => {
           setIncluded("");
           setExcluded("");
           setTourType("");
-          setTourDepartureDate("")
+          setTourDepartureDate("");
         });
     } catch (e) {
       // toast.error(e.message, {
@@ -615,6 +658,120 @@ const page = () => {
                         </div>
                       </div>
                     ))}
+
+                  <div
+                    className="form-inner mb-20"
+                    style={{
+                      width: "40vw",
+                      margin: "1vmax auto",
+                      display: "flex",
+                    }}
+                  >
+                    <label htmlFor="numStay">Number of Stay:</label>
+                    <input
+                      type="number"
+                      id="numStay"
+                      value={numStay}
+                      onChange={handleNumStaysChange}
+                    />
+                  </div>
+                  {numStay >= 0 && (
+                    <div
+                      className="form-inner mb-20"
+                      style={{
+                        width: "40vw",
+                        margin: "1vmax auto",
+                        display: "flex",
+                      }}
+                    >
+                      {[...Array(numStay)].map((_, index) => (
+                        <div
+                          className="form-inner mb-20"
+                          style={{
+                            width: "40vw",
+                            margin: "1vmax auto",
+                            display: "flex",
+                          }}
+                        >
+                          <div key={index} style={{ marginRight: "1rem" }}>
+                            <h4>Stay {index + 1} Details:</h4>
+                            <div className="form-inner mb-20">
+                              <input
+                                type="text"
+                                placeholder={`City Name`}
+                                value={hotelDetails[index]?.cityName || ""}
+                                onChange={(e) =>
+                                  handleHotelDetailsChange(
+                                    index,
+                                    "cityName",
+                                    e.target.value
+                                  )
+                                }
+                              />
+                            </div>
+                            <div className="form-inner mb-20">
+                              <input
+                                type="text"
+                                placeholder={`Hotel Name`}
+                                value={hotelDetails[index]?.hotelName || ""}
+                                onChange={(e) =>
+                                  handleHotelDetailsChange(
+                                    index,
+                                    "hotelName",
+                                    e.target.value
+                                  )
+                                }
+                              />
+                            </div>
+                            <div className="form-inner mb-20">
+                              <input
+                                type="text"
+                                placeholder={`Room Type`}
+                                value={hotelDetails[index]?.roomType || ""}
+                                onChange={(e) =>
+                                  handleHotelDetailsChange(
+                                    index,
+                                    "roomType",
+                                    e.target.value
+                                  )
+                                }
+                              />
+                            </div>
+
+                            <div className="form-inner mb-20">
+                              <input
+                                type="date"
+                                placeholder={`Check In`}
+                                value={hotelDetails[index]?.checkIn || ""}
+                                onChange={(e) =>
+                                  handleHotelDetailsChange(
+                                    index,
+                                    "checkIn",
+                                    e.target.value
+                                  )
+                                }
+                              />
+                            </div>
+                            <div className="form-inner mb-20">
+                              <input
+                                type="date"
+                                placeholder={`Check Out`}
+                                value={hotelDetails[index]?.checkOut || ""}
+                                onChange={(e) =>
+                                  handleHotelDetailsChange(
+                                    index,
+                                    "checkOut",
+                                    e.target.value
+                                  )
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
                   {transportMode !== "land" && (
                     <>
                       <div
