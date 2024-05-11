@@ -106,7 +106,7 @@ const Banner1 = () => {
                     backgroundPosition: "center",
                     cursor: "pointer",
                   }}
-                  onClick={handleBannerClick1}
+                  onClick={handleBannerClick2}
                 >
                   <div className="container" style={{ visibility: "hidden" }}>
                     <div className="row">
