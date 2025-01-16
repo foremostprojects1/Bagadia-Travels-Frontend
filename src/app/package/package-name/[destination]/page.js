@@ -264,10 +264,21 @@ const page = () => {
                                 <div className="card-content-bottom">
                                   <div className="price-area">
                                     <h6>Starting Form:</h6>
-                                    <span
+                                    {/* <span
                                       className="formSpan"
                                     >
                                       ₹ {item.price && item.price}
+                                    </span> */}
+                                    <span className="formSpan">
+                                      ₹{" "}
+                                      {item.paxData
+                                        ? item.paxData["2Pax"] ||
+                                          item.paxData["4Pax"] ||
+                                          item.paxData["6Pax"] ||
+                                          item.paxData["8Pax"] ||
+                                          item.paxData["10Pax"] ||
+                                          "N/A"
+                                        : item.price}
                                     </span>
                                   </div>  
                                   <div className="price-area">
