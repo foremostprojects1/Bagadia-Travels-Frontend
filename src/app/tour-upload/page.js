@@ -15,6 +15,14 @@ import DatePicker from "react-datepicker";
 const page = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
+  const [paxData, setPaxData] = useState({
+    "2Pax": 0,
+    "4Pax": 0,
+    "6Pax": 0,
+    "8Pax": 0,
+    "10Pax": 0,
+  });
+
   const [country, setCountry] = useState("");
   const [transportMode, setTransportMode] = useState("");
   const [tourType, setTourType] = useState("");
@@ -37,6 +45,13 @@ const page = () => {
   const [returnNumStops, setReturnNumStops] = useState(0);
 
   const [numStay, setNumStay] = useState(0);
+
+  const handlePaxDataChange = (key, value) => {
+    setPaxData((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
 
   const handleNumStopsChange = (e) => {
     const stops = parseInt(e.target.value);
@@ -239,6 +254,8 @@ const page = () => {
       formData.append("hotelDetails", JSON.stringify(hotelDetails));
       formData.append("tourType", tourType);
       formData.append("tourDepartureDate", tourDepartureDate);
+      formData.append("paxData", JSON.stringify(paxData));
+
       //   for (var key of formData.entries()) {
       //     console.log(key[0] + ', ' + key[1]);
       // }
@@ -283,6 +300,13 @@ const page = () => {
           setExcluded("");
           setTourType("");
           setTourDepartureDate("");
+          setPaxData({
+            "2Pax": 0,
+            "4Pax": 0,
+            "6Pax": 0,
+            "8Pax": 0,
+            "10Pax": 0,
+          });
         })
         .catch((error) => {
           console.log(error);
@@ -316,6 +340,13 @@ const page = () => {
           setExcluded("");
           setTourType("");
           setTourDepartureDate("");
+          setPaxData({
+            "2Pax": 0,
+            "4Pax": 0,
+            "6Pax": 0,
+            "8Pax": 0,
+            "10Pax": 0,
+          });
         });
     } catch (e) {
       // toast.error(e.message, {
@@ -347,6 +378,13 @@ const page = () => {
       setIncluded("");
       setExcluded("");
       setTourType("");
+      setPaxData({
+        "2Pax": 0,
+        "4Pax": 0,
+        "6Pax": 0,
+        "8Pax": 0,
+        "10Pax": 0,
+      });
     }
   };
   return (
@@ -389,13 +427,43 @@ const page = () => {
                       onChange={(e) => setTitle(e.target.value)}
                     />
                   </div>
+
+                  <div
+                    className="form-inner mb-20"
+                    style={{ width: "40vw", margin: "1vmax auto" }}
+                  >
+                    {Object.entries(paxData).map(([key, value]) => (
+                      <div
+                        key={key}
+                        className="form-inner mb-20"
+                        style={{
+                          width: "40vw",
+                          margin: "1vmax auto",
+                        }}
+                      >
+                        <label
+                          htmlFor="numPlaces"
+                          style={{ fontSize: "1vmax" }}
+                        >
+                          Price for {key}
+                        </label>
+                        <input
+                          type="number"
+                          placeholder={`Enter price for ${key}`}
+                          value={value}
+                          onChange={(e) => handlePaxDataChange(key, e.target.value)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
                   <div
                     className="form-inner mb-20"
                     style={{ width: "40vw", margin: "1vmax auto" }}
                   >
                     <input
                       type="text"
-                      placeholder="Price"
+                      placeholder="Per Person Price"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                     />

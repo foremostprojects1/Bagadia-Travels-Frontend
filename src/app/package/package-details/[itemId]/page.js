@@ -19,6 +19,7 @@ const Page = () => {
   const itemId = params.itemId;
   const [isOpen, setOpen] = useState(false);
   const [data, setData] = useState(false);
+  const [selectedPax, setSelectedPax] = useState("2Pax");
 
   const [isLoading, setIsLoading] = useState(true);
   const [isOpenimg, setOpenimg] = useState({
@@ -36,6 +37,17 @@ const Page = () => {
   const [numberOfKids, setNumberOfKids] = useState("");
   const [numberOfInfant, setNumberOfInfant] = useState("");
   const [budget, setBudget] = useState("");
+
+  const handleDropdownChange = (e) => {
+    setSelectedPax(e.target.value);
+  };
+
+  const getPrice = () => {
+    if (data.paxData) {
+      return data.paxData[selectedPax] || "N/A";
+    }
+    return data.price;
+  };
 
   const handleFormSubmission = async (e) => {
     e.preventDefault();
@@ -253,10 +265,51 @@ const Page = () => {
                 <div className="col-xl-8">
                   <h2>{data && data.title}</h2>
                   <h4>Tour Type:{data && data.tourType}</h4>
-                  <div className="tour-price">
+                  {/* <div className="tour-price">
                     <h3>₹ {data && data.price}/</h3>
                     <span>per person</span>
+                  </div> */}
+
+                  <div className="tour-price">
+                    {data.paxData ? (
+                      <>
+                        <div
+                          className="form-inner"
+                          style={{
+                            // width: "40vw",
+                            margin: "0.5vmax",
+                            // textAlign: "center",
+                          }}
+                        >
+                          <select
+                            value={selectedPax}
+                            onChange={handleDropdownChange}
+                            style={{
+                              padding: "0.8vmax",
+                              fontSize: "1rem",
+                              border: "1px solid #ccc",
+                              borderRadius: "4px",
+                              marginBottom: "1vmax",
+                            }}
+                          >
+                            {Object.keys(data.paxData).filter((key) => data.paxData[key] != 0).map((key) => (
+                              <option key={key} value={key}>
+                                {key}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <h3>₹ {getPrice()}/</h3>
+                        <span>per person</span>
+                      </>
+                    ) : (
+                      <>
+                        <h3>₹ {data.price}/</h3>
+                        <span>per person</span>
+                      </>
+                    )}
                   </div>
+
                   <div className="tour-price">
                     {data.tourType == "Group Tour" &&
                       data.tourDepartureDate != null && (
@@ -348,7 +401,7 @@ const Page = () => {
                         </div>
                       ))}
                   </div>
-                  
+
                   <h4>Included</h4>
                   <div className="includ-and-exclud-area mb-20">
                     <ul>
@@ -400,7 +453,6 @@ const Page = () => {
                     </ul>
                   </div>
 
-                  
                   {data.hotelDetails && data.hotelDetails.length > 0 && (
                     <>
                       <h4>Hotels</h4>
@@ -418,7 +470,7 @@ const Page = () => {
                                   aria-expanded="true"
                                   aria-controls="collapseOne"
                                 >
-                                  <span>{index+1}</span>
+                                  <span>{index + 1}</span>
                                   {item.hotelName} - {item.cityName}
                                 </button>
                               </h2>

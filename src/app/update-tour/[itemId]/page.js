@@ -18,6 +18,13 @@ const page = () => {
 
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
+  const [paxData, setPaxData] = useState({
+    "2Pax": 0,
+    "4Pax": 0,
+    "6Pax": 0,
+    "8Pax": 0,
+    "10Pax": 0,
+  });
   const [country, setCountry] = useState("");
   const [transportMode, setTransportMode] = useState("");
   const [tourType, setTourType] = useState("");
@@ -55,6 +62,13 @@ const page = () => {
     }));
     return initialDetails;
   });
+
+  const handlePaxDataChange = (key, value) => {
+    setPaxData((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
 
   const handleHotelDetailsChange = (index, field, value) => {
     setHotelDetails((prevModeDetails) => {
@@ -240,6 +254,8 @@ const page = () => {
       formData.append("hotelDetails", JSON.stringify(hotelDetails));
       formData.append("tourType", tourType);
       formData.append("tourDepartureDate", tourDepartureDate);
+      formData.append("paxData", JSON.stringify(paxData));
+
       for (var key of formData.entries()) {
         console.log(key[0] + ", " + key[1]);
       }
@@ -312,6 +328,7 @@ const page = () => {
         setTourDescription(tourData.tourDescription);
         setIncluded(tourData.included);
         setExcluded(tourData.excluded);
+        setPaxData(tourData.paxData);
 
         if (tourData.modeDetails.length <= 1) {
           setNumStops(0);
@@ -386,6 +403,36 @@ const page = () => {
                           onChange={(e) => setTitle(e.target.value)}
                         />
                       </div>
+
+                      <div
+                    className="form-inner mb-20"
+                    style={{ width: "40vw", margin: "1vmax auto" }}
+                  >
+                    {Object.entries(paxData).map(([key, value]) => (
+                      <div
+                        key={key}
+                        className="form-inner mb-20"
+                        style={{
+                          width: "40vw",
+                          margin: "1vmax auto",
+                        }}
+                      >
+                        <label
+                          htmlFor="numPlaces"
+                          style={{ fontSize: "1vmax" }}
+                        >
+                          Price for {key}
+                        </label>
+                        <input
+                          type="number"
+                          placeholder={`Enter price for ${key}`}
+                          value={value}
+                          onChange={(e) => handlePaxDataChange(key, e.target.value)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
                       <div
                         className="form-inner mb-20"
                         style={{ width: "40vw", margin: "1vmax auto" }}
