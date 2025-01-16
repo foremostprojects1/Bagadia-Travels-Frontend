@@ -43,7 +43,7 @@ const About1 = () => {
                       />
                     </svg>
                   </span>
-                  <h2>Let’s know About Our Journey For Bagadia Travels.</h2>
+                  <h2>Let’s know About Our Journey For Magical Journey.</h2>
                 </div>
                 <ul className="nav nav-pills" id="pills-tab3" role="tablist">
                   <li className="nav-item" role="presentation">

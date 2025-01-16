@@ -202,7 +202,7 @@ const Footer = ({ style }) => {
                 </li>
               </ul>
               <p>
-                ©Copyright 2024 Bagadia Tours and Travels | Design By{" "}
+                ©Copyright 2024 Magical Journey | Design By{" "}
                 <a href="https://www.foremostinfosystem.com/">Foremost Infosystem</a>
               </p>
               <div className="footer-right">

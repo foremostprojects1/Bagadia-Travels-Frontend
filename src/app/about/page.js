@@ -7,11 +7,11 @@ import Home2Team from "@/components/team/Home2Team";
 import Home2WhyChoose from "@/components/whyChoose/Home2WhyChoose";
 import Home2About from "@/components/about/Home2About";
 export const metadata = {
-  title: "Bagadia Tours and Travels - Where the Journey Begins!",
+  title: "Magical Journey - Where the Journey Begins!",
   description:
     "To inspire and empower travelers to explore the world with confidence, providing exceptional service, unforgettable experiences, and fostering a deep appreciation for diverse cultures and destinations.",
   icons: {
-    icon: "/assets/img/logo.jpeg",
+    icon: "/assets/img/new_logo3.png",
   },
 };
 const page = () => {
