@@ -33,9 +33,9 @@ const Home1FacilitySlide = () => {
           <div className="row g-0">
             <div className="col-lg-6">
               <div className="slider-content-wrapper">
-                <Swiper {...settings} className="swiper franctional-slider">
+                {/* <Swiper {...settings} className="swiper franctional-slider"> */}
                   <div className="swiper-wrapper">
-                    <SwiperSlide className="swiper-slide">
+                    {/* <SwiperSlide className="swiper-slide"> */}
                       <div className="slider-content">
                         <div className="section-title mb-20">
                           <span>
@@ -139,8 +139,8 @@ const Home1FacilitySlide = () => {
                           </li>
                         </ul>
                       </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="swiper-slide">
+                    {/* </SwiperSlide> */}
+                    {/* <SwiperSlide className="swiper-slide">
                       <div className="slider-content">
                         <div className="section-title mb-20">
                           <span>
@@ -244,9 +244,9 @@ const Home1FacilitySlide = () => {
                           </li>
                         </ul>
                       </div>
-                    </SwiperSlide>
+                    </SwiperSlide> */}
                   </div>
-                  <div className="nav-and-pagi-area">
+                  {/* <div className="nav-and-pagi-area">
                     <div className="franctional-slider-prev-btn">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -268,8 +268,8 @@ const Home1FacilitySlide = () => {
                         <path d="M0 6.5H52M52 6.5L46 1M52 6.5L46 12" />
                       </svg>
                     </div>
-                  </div>
-                </Swiper>
+                  </div> */}
+                {/* </Swiper> */}
               </div>
             </div>
             <div className="col-lg-6">

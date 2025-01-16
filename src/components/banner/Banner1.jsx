@@ -59,7 +59,7 @@ const Banner1 = () => {
                   className="home1-banner-wrapper"
                   style={{
                     backgroundImage:
-                      "url(assets/img/home1/home1-banner-img1.jpg)",
+                      "url(assets/img/home1/home1-banner-img3.jpg)",
                     backgroundSize: "contain",
                     backgroundPosition: "center",
                     cursor: "pointer",
@@ -101,7 +101,7 @@ const Banner1 = () => {
                   className="home1-banner-wrapper"
                   style={{
                     backgroundImage:
-                      "url(assets/img/home1/home1-banner-img2.jpg)",
+                      "url(assets/img/home1/home1-banner-img4.jpg)",
                     backgroundSize: "contain",
                     backgroundPosition: "center",
                     cursor: "pointer",

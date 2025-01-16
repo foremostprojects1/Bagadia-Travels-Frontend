@@ -310,6 +310,45 @@ const Page = () => {
                   </ul>
 
                   <p>{data && data.tourDescription}</p>
+
+                  <h4>Itinerary</h4>
+                  <div className="accordion tour-plan" id="tourPlan">
+                    {!isLoading &&
+                      data.daysDescription &&
+                      data.daysDescription.map((item, index) => (
+                        <div className="accordion-item">
+                          <h2 className="accordion-header" id="headingOne">
+                            <button
+                              className="accordion-button"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseOne"
+                              aria-expanded="true"
+                              aria-controls="collapseOne"
+                            >
+                              <span>Day {index + 1} :</span>
+                              {data.daysTitles[index]}
+                            </button>
+                          </h2>
+                          <div
+                            id="collapseOne"
+                            className="accordion-collapse collapse show"
+                            aria-labelledby="headingOne"
+                            data-bs-parent="#tourPlan"
+                          >
+                            <div className="accordion-body">
+                              <p>{/* {item} */}</p>
+                              <ul>
+                                <li>
+                                  <i className="bi bi-check-lg" /> {item}
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                  </div>
+                  
                   <h4>Included</h4>
                   <div className="includ-and-exclud-area mb-20">
                     <ul>
@@ -361,43 +400,7 @@ const Page = () => {
                     </ul>
                   </div>
 
-                  <h4>Itinerary</h4>
-                  <div className="accordion tour-plan" id="tourPlan">
-                    {!isLoading &&
-                      data.daysDescription &&
-                      data.daysDescription.map((item, index) => (
-                        <div className="accordion-item">
-                          <h2 className="accordion-header" id="headingOne">
-                            <button
-                              className="accordion-button"
-                              type="button"
-                              data-bs-toggle="collapse"
-                              data-bs-target="#collapseOne"
-                              aria-expanded="true"
-                              aria-controls="collapseOne"
-                            >
-                              <span>Day {index + 1} :</span>
-                              {data.daysTitles[index]}
-                            </button>
-                          </h2>
-                          <div
-                            id="collapseOne"
-                            className="accordion-collapse collapse show"
-                            aria-labelledby="headingOne"
-                            data-bs-parent="#tourPlan"
-                          >
-                            <div className="accordion-body">
-                              <p>{/* {item} */}</p>
-                              <ul>
-                                <li>
-                                  <i className="bi bi-check-lg" /> {item}
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                  </div>
+                  
                   {data.hotelDetails && data.hotelDetails.length > 0 && (
                     <>
                       <h4>Hotels</h4>
@@ -1013,6 +1016,9 @@ const Page = () => {
                             <span>To More Inquiry</span>
                             <h6>
                               <a href="tel:+7777996708">+91 7777-99-6708</a>
+                            </h6>
+                            <h6>
+                              <a href="tel:+9429400900">+91 9429-40-0900</a>
                             </h6>
                           </div>
                         </div>

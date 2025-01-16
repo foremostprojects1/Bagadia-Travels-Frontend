@@ -11,7 +11,7 @@ const Footer = ({ style }) => {
               <div className="footer-widget">
                 <div className="footer-logo">
                   <Link href="/">
-                    <img src="/assets/img/logo.png" alt="" />
+                    <img src="/assets/img/new_logo1.png" alt="" />
                   </Link>
                 </div>
                 <h3>
@@ -60,7 +60,8 @@ const Footer = ({ style }) => {
                     </svg>
                     <h5>More Inquiry</h5>
                   </div>
-                  <a href="tel:999858624984">+ 91 7777-99-6708</a>
+                  <a href="tel:7777996708">+ 91 7777-99-6708 , </a>
+                  <a href="tel:9429400900">+ 91 9429-40-0900</a>
                 </div>
                 <div className="single-contact mb-35">
                   <div className="widget-title">
@@ -76,10 +77,29 @@ const Footer = ({ style }) => {
                     </svg>
                     <h5>Send Mail</h5>
                   </div>
-                  <a href="mailto:bagadiatravels@gmail.com">
-                    bagadiatravels@gmail.com
+                  <a href="mailto:mymjindia@gmail.com">
+                    mymjindia@gmail.com
                   </a>
                 </div>
+                <div className="single-contact mb-20">
+                  <div className="widget-title">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width={18}
+                      height={18}
+                      viewBox="0 0 18 18"
+                    >
+                      <g clipPath="url(#clip0_1137_183)">
+                        <path d="M14.3281 3.08241C13.2357 1.19719 11.2954 0.0454395 9.13767 0.00142383C9.04556 -0.000474609 8.95285 -0.000474609 8.86071 0.00142383C6.70303 0.0454395 4.76268 1.19719 3.67024 3.08241C2.5536 5.0094 2.52305 7.32408 3.5885 9.27424L8.05204 17.4441C8.05405 17.4477 8.05605 17.4513 8.05812 17.4549C8.25451 17.7963 8.60632 18 8.99926 18C9.39216 18 9.74397 17.7962 9.94032 17.4549C9.94239 17.4513 9.9444 17.4477 9.9464 17.4441L14.4099 9.27424C15.4753 7.32408 15.4448 5.0094 14.3281 3.08241ZM8.99919 8.15627C7.60345 8.15627 6.46794 7.02076 6.46794 5.62502C6.46794 4.22928 7.60345 3.09377 8.99919 3.09377C10.3949 3.09377 11.5304 4.22928 11.5304 5.62502C11.5304 7.02076 10.395 8.15627 8.99919 8.15627Z" />
+                      </g>
+                    </svg>
+                    <h5>Address-1</h5>
+                  </div>
+                  <a href="https://maps.app.goo.gl/smU8aRY12NFTrfsi9">
+                    Opposite Rajkot Bus Port, Dhebar Road, Rajkot - 360002, Gujarat, Bharat.
+                  </a>
+                </div>
+
                 <div className="single-contact">
                   <div className="widget-title">
                     <svg
@@ -92,12 +112,13 @@ const Footer = ({ style }) => {
                         <path d="M14.3281 3.08241C13.2357 1.19719 11.2954 0.0454395 9.13767 0.00142383C9.04556 -0.000474609 8.95285 -0.000474609 8.86071 0.00142383C6.70303 0.0454395 4.76268 1.19719 3.67024 3.08241C2.5536 5.0094 2.52305 7.32408 3.5885 9.27424L8.05204 17.4441C8.05405 17.4477 8.05605 17.4513 8.05812 17.4549C8.25451 17.7963 8.60632 18 8.99926 18C9.39216 18 9.74397 17.7962 9.94032 17.4549C9.94239 17.4513 9.9444 17.4477 9.9464 17.4441L14.4099 9.27424C15.4753 7.32408 15.4448 5.0094 14.3281 3.08241ZM8.99919 8.15627C7.60345 8.15627 6.46794 7.02076 6.46794 5.62502C6.46794 4.22928 7.60345 3.09377 8.99919 3.09377C10.3949 3.09377 11.5304 4.22928 11.5304 5.62502C11.5304 7.02076 10.395 8.15627 8.99919 8.15627Z" />
                       </g>
                     </svg>
-                    <h5>Address</h5>
+                    <h5>Address-2</h5>
                   </div>
-                  <a href="https://maps.app.goo.gl/smU8aRY12NFTrfsi9">
-                    OPP ST Bus stand, Dhebar road, Rajkot,Gujarat - 360001
+                  <a href="https://maps.app.goo.gl/AQjf5KgckLXKakus8">
+                    Chandan Park 4 Corner, Raiya Road, Rajkot - 360005, Gujarat, Bharat.
                   </a>
                 </div>
+
               </div>
             </div>
             <div className="col-lg-3 col-md-6 col-sm-6 d-flex justify-content-lg-end justify-content-sm-end">

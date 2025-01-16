@@ -147,19 +147,19 @@ const Header = () => {
       >
         <div className="header-logo d-lg-none d-flex">
           <Link href="/">
-            <img alt="image" className="img-fluid" src="/assets/img/logo.png" />
+            <img alt="image" className="img-fluid" src="/assets/img/new_logo3.png" />
           </Link>
         </div>
         <div className="company-logo d-lg-flex d-none">
           <Link href="/">
-            <img src="/assets/img/logo.png" width="290vw" alt="" />
+            <img src="/assets/img/new_logo3.png" width="290vw" alt="" />
           </Link>
         </div>
         <div className={`main-menu ${state.isSidebarOpen ? "show-menu" : ""}`}>
           <div className="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
             <div className="mobile-logo-wrap">
               <Link href="/">
-                <img alt="image" src="/assets/img/logo.png" />
+                <img alt="image" src="/assets/img/new_logo3.png" />
               </Link>
             </div>
             <div className="menu-close-btn" onClick={toggleSidebar}>
@@ -281,6 +281,9 @@ const Header = () => {
               <h6>
                 <a href="tel:+7777996708">+ 91 7777-99-6708</a>
               </h6>
+              <h6>
+                <a href="tel:9429400900">+ 91 9429-40-0900</a>
+              </h6>
             </div>
           </div>
         </div>
@@ -352,6 +355,9 @@ const Header = () => {
               <h6>
                 <a href="tel:+7777996708">+ 91 7777-99-6708</a>
               </h6>
+              <h6>
+                <a href="tel:9429400900">+ 91 9429-40-0900</a>
+              </h6>
             </div>
           </div>
           <div
@@ -377,7 +383,7 @@ const Header = () => {
         <div className="sidebar-logo-area d-flex justify-content-between align-items-center">
           <div className="sidebar-logo-wrap">
             <Link href="/">
-              <img alt="image" src="/assets/img/logo.png" />
+              <img alt="image" src="/assets/img/new_logo3.png" />
             </Link>
           </div>
           <div className="right-sidebar-close-btn" onClick={toggleRightSidebar}>
@@ -609,6 +615,9 @@ const Header = () => {
               <span>To More Inquiry</span>
               <h6>
                 <a href="tel:+7777996708">+ 91 7777-99-6708</a>
+              </h6>
+              <h6>
+                <a href="tel:9429400900">+ 91 9429-40-0900</a>
               </h6>
             </div>
           </div>

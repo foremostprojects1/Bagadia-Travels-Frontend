@@ -203,6 +203,16 @@
             "id": "3",
             "label": "Saudi Arabia",
             "link": "/package/package-name/saudi-arabia"
+          },
+          {
+            "id": "4",
+            "label": "Georgia",
+            "link": "/package/package-name/georgia"
+          },
+          {
+            "id": "5",
+            "label": "Kazakhstan",
+            "link": "/package/package-name/kazakhstan"
           }
         ]
       },
@@ -306,9 +316,141 @@
             "link": "/package/package-name/ireland"
           }
         ]
+      },
+      {
+        "id": "6",
+        "label": "Africa",
+        "link": "/africa",
+        "icon": true,
+        "subMenu": [
+          {
+            "id": "1",
+            "label": "Botswana",
+            "link": "/package/package-name/botswana"
+          },
+          {
+            "id": "2",
+            "label": "Egypt",
+            "link": "/package/package-name/egypt"
+          },
+          {
+            "id": "3",
+            "label": "Mauritius",
+            "link": "/package/package-name/mauritius"
+          },
+          {
+            "id": "4",
+            "label": "Seychelles",
+            "link": "/package/package-name/seychelles"
+          },
+          {
+            "id": "5",
+            "label": "Zambia",
+            "link": "/package/package-name/zambia"
+          },
+          {
+            "id": "6",
+            "label": "Zimbabwe",
+            "link": "/package/package-name/zimbabwe"
+          },
+          {
+            "id": "7",
+            "label": "South Africa",
+            "link": "/package/package-name/south-africa"
+          },
+          {
+            "id": "8",
+            "label": "Kenya",
+            "link": "/package/package-name/kenya"
+          },
+          {
+            "id": "9",
+            "label": "Tanzania",
+            "link": "/package/package-name/tanzania"
+          },
+          {
+            "id": "10",
+            "label": "Morocco",
+            "link": "/package/package-name/morocco"
+          },
+          {
+            "id": "11",
+            "label": "Uganda",
+            "link": "/package/package-name/uganda"
+          },
+          {
+            "id": "12",
+            "label": "Madagascar",
+            "link": "/package/package-name/madagascar"
+          }
+        ]
+      },
+      {
+        "id": "7",
+        "label": "America",
+        "link": "/america",
+        "icon": true,
+        "subMenu": [
+          {
+            "id": "1",
+            "label": "Central America",
+            "link": "/package/package-name/central-america"
+          },
+          {
+            "id": "2",
+            "label": "USA - United States",
+            "link": "/package/package-name/usa-united-states"
+          },
+          {
+            "id": "3",
+            "label": "Canada",
+            "link": "/package/package-name/canada"
+          },
+          {
+            "id": "4",
+            "label": "Alaska",
+            "link": "/package/package-name/alaska"
+          },
+          {
+            "id": "5",
+            "label": "South America",
+            "link": "/package/package-name/south-america"
+          },
+          {
+            "id": "6",
+            "label": "Mexico",
+            "link": "/package/package-name/mexico"
+          },
+          {
+            "id": "7",
+            "label": "Hawaii",
+            "link": "/package/package-name/hawaii"
+          }
+        ]
+      },
+      {
+        "id": "8",
+        "label": "Australia & NZ",
+        "link": "/australia-nz",
+        "icon": true,
+        "subMenu": [
+          {
+            "id": "1",
+            "label": "Australia",
+            "link": "/package/package-name/australia"
+          },
+          {
+            "id": "2",
+            "label": "New Zealand",
+            "link": "/package/package-name/new-zealand"
+          },
+          {
+            "id": "3",
+            "label": "Fiji",
+            "link": "/package/package-name/fiji"
+          }
+        ]
       }
-      
-      
     ]
   },
 

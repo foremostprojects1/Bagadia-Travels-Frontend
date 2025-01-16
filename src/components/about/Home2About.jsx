@@ -175,7 +175,7 @@ const Home2About = () => {
                   <div className="content">
                     <div className="number">
                       <h5 className="counter">
-                        <CountUp delay={2} end={500} />
+                        <CountUp delay={2} end={1000} />
                       </h5>
                       <span>+</span>
                     </div>
@@ -200,7 +200,7 @@ const Home2About = () => {
                   <div className="content">
                     <div className="number">
                       <h5 className="counter">
-                        <CountUp delay={2} end={40} />
+                        <CountUp delay={2} end={120} />
                       </h5>
                       <span>+</span>
                     </div>
@@ -232,7 +232,7 @@ const Home2About = () => {
                   <div className="content">
                     <div className="number">
                       <h5 className="counter">
-                        <CountUp delay={2} end={99} />
+                        <CountUp delay={2} end={84} />
                       </h5>
                       <span>%</span>
                     </div>
