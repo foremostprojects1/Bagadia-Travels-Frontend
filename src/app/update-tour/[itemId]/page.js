@@ -408,7 +408,7 @@ const page = () => {
                     className="form-inner mb-20"
                     style={{ width: "40vw", margin: "1vmax auto" }}
                   >
-                    {Object.entries(paxData).map(([key, value]) => (
+                    {paxData && Object.entries(paxData).map(([key, value]) => (
                       <div
                         key={key}
                         className="form-inner mb-20"
