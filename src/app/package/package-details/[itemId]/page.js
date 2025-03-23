@@ -138,7 +138,7 @@ const Page = () => {
       ) : (
         <>
           <Header />
-          <Breadcrumb pagename="Package Details" pagetitle="Package Details" />
+          <Breadcrumb pagename="" pagetitle="" />
           <div className="package-details-area pt-120 mb-120 position-relative">
             <div className="container">
               <div className="row">
