@@ -11,7 +11,7 @@ const Footer = ({ style }) => {
               <div className="footer-widget">
                 <div className="footer-logo">
                   <Link href="/">
-                    <img src="/assets/img/new_logo1.png" alt="" />
+                    <img src="/assets/img/logo.png" alt="" />
                   </Link>
                 </div>
                 <h3>
@@ -77,8 +77,8 @@ const Footer = ({ style }) => {
                     </svg>
                     <h5>Send Mail</h5>
                   </div>
-                  <a href="mailto:mymjindia@gmail.com">
-                    mymjindia@gmail.com
+                  <a href="mailto:bagadiatravels@gmail.com">
+                    bagadiatravels@gmail.com
                   </a>
                 </div>
                 <div className="single-contact mb-20">
@@ -202,7 +202,7 @@ const Footer = ({ style }) => {
                 </li>
               </ul>
               <p>
-                ©Copyright 2024 Magical Journey | Design By{" "}
+                ©Copyright 2024 Bagadia Tours and Travels | Design By{" "}
                 <a href="https://www.foremostinfosystem.com/">Foremost Infosystem</a>
               </p>
               <div className="footer-right">

@@ -40,7 +40,7 @@ const Home1WhyChoose = () => {
                     />
                   </svg>
                 </span>
-                <h2>Why Choose Magical Journey</h2>
+                <h2>Why Choose Bagadia Tours and Travels</h2>
               </div>
             </div>
           </div>

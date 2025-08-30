@@ -700,7 +700,7 @@ const Page = () => {
             <div className="dashboard-footer">
               <div className="copyright-area">
                 <p>
-                  Copyright 2024 <a href="#">Magical Journey</a> | Design By{" "}
+                  Copyright 2024 <a href="#">Bagadia Tours and Travels</a> | Design By{" "}
                   <a href="https://www.foremostinfosystem.com/">Foremost Infosystem</a>
                 </p>
               </div>

@@ -120,8 +120,8 @@ const page = () => {
                 </div>
                 <div className="content">
                   <h6>
-                    <a href="mailto:mymjindia@gmail.com">
-                      mymjindia@gmail.com
+                    <a href="mailto:bagadiatravels@gmail.com">
+                      bagadiatravels@gmail.com
                     </a>
                   </h6>
                 </div>

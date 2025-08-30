@@ -147,19 +147,19 @@ const Header = () => {
       >
         <div className="header-logo d-lg-none d-flex">
           <Link href="/">
-            <img alt="image" className="img-fluid" src="/assets/img/new_logo3.png" />
+            <img alt="image" className="img-fluid" src="/assets/img/logo.png" />
           </Link>
         </div>
         <div className="company-logo d-lg-flex d-none">
           <Link href="/">
-            <img src="/assets/img/new_logo3.png" width="290vw" alt="" />
+            <img src="/assets/img/logo.png" width="290vw" alt="" />
           </Link>
         </div>
         <div className={`main-menu ${state.isSidebarOpen ? "show-menu" : ""}`}>
           <div className="mobile-logo-area d-lg-none d-flex justify-content-between align-items-center">
             <div className="mobile-logo-wrap">
               <Link href="/">
-                <img alt="image" src="/assets/img/new_logo3.png" />
+                <img alt="image" src="/assets/img/logo.png" />
               </Link>
             </div>
             <div className="menu-close-btn" onClick={toggleSidebar}>
@@ -383,7 +383,7 @@ const Header = () => {
         <div className="sidebar-logo-area d-flex justify-content-between align-items-center">
           <div className="sidebar-logo-wrap">
             <Link href="/">
-              <img alt="image" src="/assets/img/new_logo3.png" />
+              <img alt="image" src="/assets/img/logo.png" />
             </Link>
           </div>
           <div className="right-sidebar-close-btn" onClick={toggleRightSidebar}>

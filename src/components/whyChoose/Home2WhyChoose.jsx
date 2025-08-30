@@ -35,7 +35,7 @@ const Home2WhyChoose = () => {
                 <div className="eg-section-tag">
                   <span>Who We Are</span>
                 </div>
-                <h2>Why Magical Journey Is Best</h2>
+                <h2>Why Bagadia Tours and Travels Is Best</h2>
               </div>
             </div>
           </div>
