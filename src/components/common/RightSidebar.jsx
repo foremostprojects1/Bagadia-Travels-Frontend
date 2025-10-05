@@ -408,9 +408,6 @@ const RightSidebar = ({ toggleRightSidebar, isRightSidebar }) => {
               <h6>
                 <a href="tel:+7777996708">+ 91 7777-99-6708</a>
               </h6>
-              <h6>
-              <a href="tel:+9429400900">+91 9429-40-0900</a>
-              </h6>
             </div>
           </div>
           <div className="email-area">

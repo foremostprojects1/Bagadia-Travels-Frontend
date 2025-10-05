@@ -99,9 +99,6 @@ const page = () => {
                   <h6>
                     <a href="tel:">+ 91 7777-99-6708</a>
                   </h6>
-                  <h6>
-                    <a href="tel:">+ 91 9429-40-0900</a>
-                  </h6>
                 </div>
               </div>
               <div className="single-contact mb-40">
@@ -145,11 +142,6 @@ const page = () => {
                   <h6>
                     <a href="https://maps.app.goo.gl/smU8aRY12NFTrfsi9">
                     Opposite Rajkot Bus Port, Dhebar Road, Rajkot - 360002, Gujarat, Bharat.
-                    </a>
-                  </h6>
-                  <h6>
-                    <a href="https://maps.app.goo.gl/AQjf5KgckLXKakus8">
-                    Chandan Park 4 Corner, Raiya Road, Rajkot - 360005, Gujarat, Bharat.
                     </a>
                   </h6>
                 </div>
