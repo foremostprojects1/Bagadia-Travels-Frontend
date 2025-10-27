@@ -56,7 +56,7 @@ const Page = () => {
   return (
     <>
       <Breadcrumb pagename="Product Details" pagetitle="Product Details" />
-      <div className="product-details-top-section pt-120 mb-120">
+      <div className="product-details-top-section pt-80 mb-120">
         <div className="container-xl container-fluid-lg container">
           <div className="row gy-5">
             <div className="col-lg-6">

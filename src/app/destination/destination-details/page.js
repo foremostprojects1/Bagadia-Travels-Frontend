@@ -45,7 +45,7 @@ const Page = () => {
         pagename="Destination Details"
         pagetitle="Destination Details"
       />
-      <div className="destination-details-wrap mb-120 pt-120">
+      <div className="destination-details-wrap mb-120 pt-80">
         <div className="container">
           <div className="row g-lg-4 gy-5">
             <div className="col-lg-8">

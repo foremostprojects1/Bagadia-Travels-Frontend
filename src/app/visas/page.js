@@ -264,7 +264,7 @@ const page = () => {
           </div>
         </div>
       </div>
-      <div className="visa-with-sidebar-section pt-120 mb-120">
+      <div className="visa-with-sidebar-section pt-80 mb-120">
         <div className="container">
           <div className="row g-lg-4 gy-5">
             <div className="col-lg-8">

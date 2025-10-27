@@ -160,8 +160,8 @@ const page = () => {
             </form>
           </Modal>
           <Header />
-          <Breadcrumb pagename="Tour Packages" pagetitle="Tour Packages" />
-          <div className="package-grid-with-sidebar-section pt-120 mb-120">
+          {/* <Breadcrumb pagename="Tour Packages" pagetitle="Tour Packages" /> */}
+          <div className="package-grid-with-sidebar-section pt-80 mb-120">
             <div className="container">
               <div className="row g-lg-4 gy-5">
                 <div className="col-lg-12">

@@ -43,7 +43,7 @@ const Page = () => {
   return (
     <>
       <Breadcrumb pagename="Room Details" pagetitle="Room Details" />
-      <div className="room-details-area pt-120 mb-120">
+      <div className="room-details-area pt-80 mb-120">
         <div className="container">
           <div className="row">
             <div className="co-lg-12">

@@ -61,7 +61,7 @@ const Page = () => {
     <>
        
       <Header />
-      <Breadcrumb pagename="Package Category" pagetitle="Package Category" />
+      {/* <Breadcrumb pagename="Package Category" pagetitle="Package Category" /> */}
       <div className="package-category-nav-section">
         <div className="container">
           <div className="row">
@@ -386,7 +386,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-      <div className="package-category-section pt-120 mb-120">
+      <div className="package-category-section pt-80 mb-120">
         <div className="container">
           <div className="tab-content" id="v-pills-tabContent">
             <div

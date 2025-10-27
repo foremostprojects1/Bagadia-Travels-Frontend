@@ -29,8 +29,8 @@ const Page = () => {
   }, []);
   return (
     <>
-      <Breadcrumb pagename="Transport Details" pagetitle="Transport Details" />
-      <div className="transport-details-section pt-120 mb-120">
+      {/* <Breadcrumb pagename="Transport Details" pagetitle="Transport Details" /> */}
+      <div className="transport-details-section pt-80 mb-120">
         <div className="container">
           <div className="row g-lg-4 gy-5">
             <div className="col-lg-8">

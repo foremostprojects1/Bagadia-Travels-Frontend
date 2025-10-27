@@ -18,7 +18,7 @@ const page = () => {
        
       <Header />
       <Breadcrumb pagename="Visa Details" pagetitle="Visa Details" />
-      <div className="visa-details-pages pt-120 mb-120">
+      <div className="visa-details-pages pt-80 mb-120">
         <div className="container">
           <div className="row g-lg-4 gy-5">
             <div className="col-lg-8">

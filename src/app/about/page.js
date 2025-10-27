@@ -19,7 +19,7 @@ const page = () => {
     <>
        
       <Header />
-      <Breadcrumb pagename="About Us" pagetitle="About Us" />
+      {/* <Breadcrumb pagename="About Us" pagetitle="About Us" /> */}
       <Home2About />
       <Home2WhyChoose />
       {/* <Home2Activities /> */}

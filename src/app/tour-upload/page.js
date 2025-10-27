@@ -390,7 +390,7 @@ const page = () => {
   return (
     <>
       <Header />
-      <Breadcrumb pagename="Upload your new tour" pagetitle="New Tour" />
+      {/* <Breadcrumb pagename="Upload your new tour" pagetitle="New Tour" /> */}
       {/* {children} */}
       <ToastContainer />
 

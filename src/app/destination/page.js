@@ -6,7 +6,7 @@ const page = () => {
   return (
     <>
       <Breadcrumb pagename="destination" pagetitle="Destination" />
-      <div className="destination-gallery-section pt-120 mb-120">
+      <div className="destination-gallery-section pt-80 mb-120">
         <div className="container">
           <div className="row g-lg-4 gy-5 mb-70">
             <div className="col-lg-3 col-sm-6">

@@ -47,8 +47,8 @@ const Page = () => {
     <>
        
       <Header />
-      <Breadcrumb pagename="Package Details" pagetitle="Package Details" />
-      <div className="package-details-area pt-120 mb-120 position-relative">
+      {/* <Breadcrumb pagename="Package Details" pagetitle="Package Details" /> */}
+      <div className="package-details-area pt-80 mb-120 position-relative">
         <div className="container">
           <div className="row">
             <div className="co-lg-12">

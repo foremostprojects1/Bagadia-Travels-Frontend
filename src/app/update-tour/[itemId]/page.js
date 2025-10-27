@@ -366,7 +366,7 @@ const page = () => {
       {!isLoading && (
         <>
           <Header />
-          <Breadcrumb pagename="Update your tour" pagetitle="Update Tour" />
+          {/* <Breadcrumb pagename="Update your tour" pagetitle="Update Tour" /> */}
           {/* {children} */}
           <ToastContainer />
 

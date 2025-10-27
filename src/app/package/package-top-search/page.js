@@ -116,7 +116,7 @@ const page = () => {
         </div>
       </div>
 
-      <div className="package-top-search-section pt-120 mb-120">
+      <div className="package-top-search-section pt-80 mb-120">
         <div className="container">
           <div className="row gy-5 mb-70">
             <div className="col-lg-4 col-md-6">

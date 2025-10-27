@@ -13,7 +13,7 @@ const page = () => {
   return (
     <>
       <Breadcrumb pagename="Shop" pagetitle="Shop" />
-      <div className="shop-section pt-120 mb-120">
+      <div className="shop-section pt-80 mb-120">
         <div className="container">
           <div className="row g-md-4 gy-5">
             <div className="col-lg-4 col-md-6">
