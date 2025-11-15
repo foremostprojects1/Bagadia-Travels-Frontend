@@ -106,7 +106,7 @@ const Page = () => {
       try {
         // Make a GET request to fetch data from the database
         const response = await axios.get(
-          "https://bagadia-travels.onrender.com/api/v1/tour/getTours",
+          "https://bagadia-travels.onrender.com/api/v1/tour/getAllTours",
           { withCredentials: true }
         );
 
