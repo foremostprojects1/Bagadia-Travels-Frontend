@@ -70,6 +70,33 @@ const Page = () => {
     }
   };
 
+  const toggleActive = async (id, status) => {
+    try {
+      await axios.put(
+        `https://bagadia-travels.onrender.com/api/v1/tour/toggle-status/${id}`,
+        { active: status },
+        {
+          withCredentials: true,
+        }
+      );
+  
+      setData((prevData) =>
+        prevData.map((item) =>
+          item._id === id ? { ...item, active: status } : item
+        )
+      );
+  
+      toast.success(
+        status ? "Tour activated successfully" : "Tour deactivated successfully"
+      );
+    } catch (error) {
+      console.error("Error updating tour status:", error);
+  
+      toast.error("Failed to update tour status");
+    }
+  };
+  
+
   useEffect(() => {
     if (!Cookies.get("token")) {
       router.push("/login");
@@ -294,11 +321,21 @@ const Page = () => {
                                     </span>
                                   </td>
                                   <td data-label="Timeline">{item.nights}</td>
-                                  <td>
+
+                                  <td
+                                    className="action-buttons"
+                                    style={{ display: "flex", gap: "12px", alignItems:"center", justifyContent:"center", height:"140px" }}
+                                  >
+                                    {/* Edit Button */}
                                     <button
                                       onClick={() =>
                                         router.push(`/update-tour/${item._id}`)
                                       }
+                                      style={{
+                                        border: "none",
+                                        background: "transparent",
+                                        cursor: "pointer",
+                                      }}
                                     >
                                       <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -310,10 +347,15 @@ const Page = () => {
                                         <path d="M1.439 16.873l-1.439 7.127 7.128-1.437 16.873-16.872-5.69-5.69-16.872 16.872zm4.702 3.848l-3.582.724.721-3.584 2.861 2.86zm15.031-15.032l-13.617 13.618-2.86-2.861 10.825-10.826 2.846 2.846 1.414-1.414-2.846-2.846 1.377-1.377 2.861 2.86z" />
                                       </svg>
                                     </button>
-                                  </td>
-                                  <td>
+
+                                    {/* Delete Button */}
                                     <button
                                       onClick={() => handleDelete(item._id)}
+                                      style={{
+                                        border: "none",
+                                        background: "transparent",
+                                        cursor: "pointer",
+                                      }}
                                     >
                                       <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -322,12 +364,73 @@ const Page = () => {
                                         viewBox="0 0 24 24"
                                         fill="red"
                                         stroke="red"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
                                       >
                                         <path d="M3 6L5 6 21 6M9 6V4C9 3.46957 9.21071 2.96086 9.58579 2.58579C9.96086 2.21071 10.4696 2 11 2L13 2C13.5304 2 14.0391 2.21071 14.4142 2.58579C14.7893 2.96086 15 3.46957 15 4V6M19 6L19 21C19 21.5304 18.7893 22.0391 18.4142 22.4142C18.0391 22.7893 17.5304 23 17 23L7 23C6.46957 23 5.96086 22.7893 5.58579 22.4142C5.21071 22.0391 5 21.5304 5 21L5 6L19 6Z" />
                                       </svg>
+                                    </button>
+
+                                    {/* Toggle Active / Inactive */}
+                                    <button
+                                      onClick={() =>
+                                        toggleActive(item._id, !item.active)
+                                      }
+                                      style={{
+                                        border: "none",
+                                        background: "transparent",
+                                        cursor: "pointer",
+                                      }}
+                                      title={
+                                        item.active
+                                          ? "Mark Inactive"
+                                          : "Mark Active"
+                                      }
+                                    >
+                                      {item.active ? (
+                                        /* Active — show green toggle ON */
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="32"
+                                          height="20"
+                                          viewBox="0 0 36 20"
+                                        >
+                                          <rect
+                                            width="36"
+                                            height="20"
+                                            rx="10"
+                                            fill="green"
+                                          ></rect>
+                                          <circle
+                                            cx="26"
+                                            cy="10"
+                                            r="8"
+                                            fill="white"
+                                          ></circle>
+                                        </svg>
+                                      ) : (
+                                        /* Inactive — show gray toggle OFF */
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="32"
+                                          height="20"
+                                          viewBox="0 0 36 20"
+                                        >
+                                          <rect
+                                            width="36"
+                                            height="20"
+                                            rx="10"
+                                            fill="gray"
+                                          ></rect>
+                                          <circle
+                                            cx="10"
+                                            cy="10"
+                                            r="8"
+                                            fill="white"
+                                          ></circle>
+                                        </svg>
+                                      )}
                                     </button>
                                   </td>
                                 </tr>
@@ -335,7 +438,6 @@ const Page = () => {
                             ))}
                         </tbody>
                       </table>
-                      
                     </div>
                   </div>
                 </div>
