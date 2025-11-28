@@ -327,7 +327,7 @@ const page = () => {
 
       <div className="contact-map">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14768.161623288532!2d70.8002221!3d22.2764592!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959cb4363e7ee93%3A0xb5e2eb3f8b2036ca!2sBagadia%20Agency!5e0!3m2!1sen!2sin!4v1709193349091!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.645397350008!2d70.80175059999999!3d22.2914185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x29c7eca8957b55a3%3A0x7462e76bc19c9fe3!2sBagadia%20Tours%20%26%20Travels!5e0!3m2!1sen!2sin!4v1764351874973!5m2!1sen!2sin"
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"

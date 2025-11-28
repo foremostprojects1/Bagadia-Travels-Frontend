@@ -241,6 +241,11 @@
             "id": "4",
             "label": "Poland",
             "link": "/package/package-name/poland"
+          },
+          {
+            "id": "5",
+            "label": "All Of East Europe",
+            "link": "/package/package-name/all-of-east-europe"
           }
         ]
       },
@@ -314,6 +319,11 @@
             "id": "13",
             "label": "Ireland",
             "link": "/package/package-name/ireland"
+          },
+          {
+            "id": "14",
+            "label": "All Of Europe",
+            "link": "/package/package-name/all-of-europe"
           }
         ]
       },

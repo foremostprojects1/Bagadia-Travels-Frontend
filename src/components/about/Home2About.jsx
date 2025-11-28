@@ -144,7 +144,7 @@ const Home2About = () => {
                   />
                 </div>
                 <div className="experience">
-                  <h3>02</h3>
+                  <h3>03</h3>
                   <p>Years of experience</p>
                 </div>
                 <img
@@ -175,7 +175,7 @@ const Home2About = () => {
                   <div className="content">
                     <div className="number">
                       <h5 className="counter">
-                        <CountUp delay={2} end={1000} />
+                        <CountUp delay={2} end={1500} />
                       </h5>
                       <span>+</span>
                     </div>
@@ -200,7 +200,7 @@ const Home2About = () => {
                   <div className="content">
                     <div className="number">
                       <h5 className="counter">
-                        <CountUp delay={2} end={120} />
+                        <CountUp delay={2} end={200} />
                       </h5>
                       <span>+</span>
                     </div>
@@ -232,7 +232,7 @@ const Home2About = () => {
                   <div className="content">
                     <div className="number">
                       <h5 className="counter">
-                        <CountUp delay={2} end={84} />
+                        <CountUp delay={2} end={100} />
                       </h5>
                       <span>%</span>
                     </div>

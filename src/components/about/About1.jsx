@@ -135,7 +135,7 @@ const About1 = () => {
                     <div className="content">
                       <div className="number">
                         <h6 className="counter">
-                          <CountUp delay={2} end={500} />
+                          <CountUp delay={2} end={1500} />
                         </h6>
                         <span>+</span>
                       </div>
