@@ -1,0 +1,31 @@
+import Breadcrumb from "@/components/common/Breadcrumb";
+import Newslatter from "@/components/common/Newslatter";
+import Footer from "@/components/footer/Footer";
+import Header from "@/components/header/Header";
+import Home2Activities from "@/components/activities/Home2Activities";
+import Home2Team from "@/components/team/Home2Team";
+import Home2WhyChoose from "@/components/whyChoose/Home2WhyChoose";
+import Home2About from "@/components/about/Home2About";
+import CabUserView from "@/components/cab-user-side/CabUser";
+export const metadata = {
+  title: "Bagadia Tours and Travels - Where the Journey Begins!",
+  description:
+    "To inspire and empower travelers to explore the world with confidence, providing exceptional service, unforgettable experiences, and fostering a deep appreciation for diverse cultures and destinations.",
+  icons: {
+    icon: "/assets/img/logo.jpeg",
+  },
+};
+const page = () => {
+  return (
+    <>
+       
+      <Header />
+      <CabUserView />
+      <Footer />
+    </>
+  );
+};
+
+export default page;
+
+

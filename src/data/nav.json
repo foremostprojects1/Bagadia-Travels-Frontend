@@ -463,9 +463,15 @@
       }
     ]
   },
+  {
+    "id": "4",
+    "label": "Cabs",
+    "link": "/cabs",
+    "icon": false
+  },
 
   {
-    "id": "6",
+    "id": "5",
     "label": "Contact",
     "link": "/contact",
     "icon": false

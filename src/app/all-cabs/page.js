@@ -1,89 +1,148 @@
 "use client";
-import Header from "@/components/header/Header";
 import React, { useEffect, useState } from "react";
-import "../../../public/assets/css/dashboard.css";
-import Link from "next/link";
-import Cookies from "js-cookie";
-import { useRouter } from "next/navigation";
 import axios from "axios";
 import Loader from "../loading.js";
+import Header from "@/components/header/Header.js";
+import Link from "next/link";
+import { toast } from "react-toastify";
 
-const Page = () => {
-  const router = useRouter();
-  const [data, setData] = useState([]);
+const CabManagement = () => {
+  const [cabs, setCabs] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
+  const [editingCab, setEditingCab] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const handleContainerClick = (event) => {
-    const target = event.target;
 
-    // Check if the clicked element has the 'dropdown-icon' class
-    if (target.classList.contains("dropdown-icon")) {
-      const dropdownIcon = target;
-      const parentListItem = dropdownIcon.parentElement;
+  const [form, setForm] = useState({
+    source: "",
+    destination: "",
+    cars: [{ carName: "", price: "" }],
+  });
 
-      // Toggle active class
-      dropdownIcon.classList.toggle("active");
+  const TaxiIcon = ({ size = 32, color = "var(--primary-color1)" }) => (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill={color}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M18.92 6H17l-1.59-3.17A2 2 0 0013.59 1H10.4a2 2 0 00-1.82 1.17L7 6H5.08A2.09 2.09 0 003 8v7a2 2 0 002 2v2a1 1 0 001 1h1a1 1 0 001-1v-2h8v2a1 1 0 001 1h1a1 1 0 001-1v-2a2 2 0 002-2V8a2.09 2.09 0 00-2.08-2zM10.4 3h3.19l1 2H9.37zM6 14a2 2 0 112-2 2 2 0 01-2 2zm12 0a2 2 0 112-2 2 2 0 01-2 2z" />
+    </svg>
+  );
 
-      // Get the next sibling element
-      const nextElement = dropdownIcon.nextElementSibling;
-
-      // Check if the next sibling exists before accessing its properties
-      if (nextElement) {
-        // Toggle display property of the next ul or .mega-menu
-        nextElement.style.display =
-          nextElement.style.display === "none" ? "block" : "none";
-
-        // Slide up siblings' ul or .mega-menu and remove active class
-        const siblings = Array.from(
-          parentListItem.parentElement.children
-        ).filter((child) => child !== parentListItem);
-
-        siblings.forEach((sibling) => {
-          const siblingDropdownIcon = sibling.querySelector(".dropdown-icon");
-          const siblingNextElement = siblingDropdownIcon?.nextElementSibling;
-
-          if (siblingNextElement) {
-            siblingNextElement.style.display = "none";
-          }
-
-          siblingDropdownIcon?.classList.remove("active");
-        });
-      }
+  // Fetch all cabs
+  const getCabs = async () => {
+    try {
+      const res = await axios.get(
+        "https://bagadia-travels.onrender.com/api/v1/cab"
+      );
+      setCabs(res.data.data || res.data);
+    } catch (error) {
+      // Handle errors
+      console.error("Error fetching data:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    if (!Cookies.get("token")) {
-      router.push("/login");
-    }
-    const fetchData = async () => {
-      try {
-        // Make a GET request to fetch data from the database
-        const response = await axios.get(
-          "https://bagadia-travels.onrender.com/api/v1/inquiry/getRecentInquiries",
-          { withCredentials: true }
-        );
-        console.log(response.data.inquiries);
-        setData(response.data.inquiries);
-      } catch (error) {
-        // Handle errors
-        console.error("Error fetching data:", error);
-      } finally {
-        // Update loading state regardless of success or failure
-        setIsLoading(false);
-      }
-    };
-
-    // Call the fetchData function when the component mounts
-    fetchData();
-
-    // Attach the event listener to the container when the component mounts
-    document.addEventListener("click", handleContainerClick);
-
-    // Remove the event listener when the component unmounts
-    return () => {
-      document.removeEventListener("click", handleContainerClick);
-    };
+    getCabs();
   }, []);
+
+  // Add / Edit form change
+  const updateForm = (e, index = null, field = null) => {
+    if (field) {
+      const updatedCars = [...form.cars];
+      updatedCars[index][field] = e.target.value;
+      setForm({ ...form, cars: updatedCars });
+    } else {
+      setForm({ ...form, [e.target.name]: e.target.value });
+    }
+  };
+
+  // Add new car input row
+  const addCarRow = () => {
+    setForm({ ...form, cars: [...form.cars, { carName: "", price: "" }] });
+  };
+
+  // Delete car row
+  const removeCarRow = (index) => {
+    const updated = form.cars.filter((_, i) => i !== index);
+    setForm({ ...form, cars: updated });
+  };
+
+  // Save (Add or Edit)
+  const handleSave = async () => {
+    try {
+      if (editingCab) {
+        await axios.put(
+          `https://bagadia-travels.onrender.com/api/v1/cab/${editingCab._id}`,
+          form
+        );
+        toast.success("Cab updated successfully");
+      } else {
+        await axios.post(
+          "https://bagadia-travels.onrender.com/api/v1/cab",
+          form
+        );
+        toast.success("Cab added successfully");
+      }
+
+      setShowModal(false);
+      setEditingCab(null);
+      setForm({
+        source: "",
+        destination: "",
+        cars: [{ carName: "", price: "" }],
+      });
+      getCabs();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to save cab");
+    }
+  };
+
+  // Edit handler
+  const handleEdit = (cab) => {
+    setEditingCab(cab);
+    setForm({
+      source: cab.source,
+      destination: cab.destination,
+      cars: cab.cars,
+    });
+    setShowModal(true);
+  };
+
+  // Delete handler
+  const handleDelete = async () => {
+    try {
+      await axios.delete(
+        `https://bagadia-travels.onrender.com/api/v1/cab/${deleteId}`
+      );
+      toast.success("Cab deleted successfully");
+      setDeleteId(null);
+      getCabs();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to delete cab");
+    }
+  };
+
+  // Toggle Active/Inactive
+  const toggleStatus = async (cab) => {
+    try {
+      await axios.patch(
+        `https://bagadia-travels.onrender.com/api/v1/cab/${cab._id}/status`,
+        { active: !cab.active }
+      );
+      toast.success(`Cab is now ${cab.active ? "Inactive" : "Active"}`);
+      getCabs();
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to update status");
+    }
+  };
 
   return (
     <>
@@ -208,79 +267,268 @@ const Page = () => {
                       <h3>Hi, Admin! </h3>
                     </div>
                   </div>
-
-                  <div className="recent-listing-area">
-                    <h6>Recent Inquiry Info</h6>
-                    <div className="recent-listing-table">
-                      <table className="eg-table2">
-                        <thead>
-                          <tr>
-                            <th>Inquiry Date</th>
-                            <th>Customer Name</th>
-                            <th>Mobile number</th>
-                            <th>email Id</th>
-                            <th>Destination</th>
-                            <th>Adults</th>
-                            <th>Kids</th>
-                            <th>Infants</th>
-                            <th>Date of Travel</th>
-                            <th>Duration Of Stay</th>
-                            <th>Budget</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {!isLoading &&
-                            data &&
-                            data.map((item) => (
-                              <tr>
-                                <td data-label="Category">
-                                  {item.createdAt &&
-                                    item.createdAt.split("T")[0]}
-                                </td>
-                                <td data-label="Category">
-                                  {item.fullName && item.fullName}
-                                </td>
-                                <td data-label="Timeline">
-                                  {item.contactNumber && item.contactNumber}
-                                </td>
-                                <td data-label="Timeline">
-                                  {item.email && item.email}
-                                </td>
-                                <td data-label="Timeline">
-                                  {item.country && item.country}
-                                </td>
-
-                                <td data-label="Price">
-                                  {item.numberOfPersons && item.numberOfPersons}
-                                </td>
-                                <td data-label="Price">
-                                  {item.numberOfKids && item.numberOfKids}
-                                </td>
-                                <td data-label="Price">
-                                  {item.numberOfInfant && item.numberOfInfant}
-                                </td>
-                                <td data-label="Status">
-                                  <span className="confirmed">
-                                    {item.startDate &&
-                                      item.startDate.split("T")[0]}
-                                  </span>
-                                </td>
-                                <td data-label="Status">
-                                  <span className="confirmed">
-                                    {item.durationOfStay && item.durationOfStay}{" "}
-                                    days
-                                  </span>
-                                </td>
-                                <td data-label="Status">
-                                  <span className="confirmed">
-                                    Rs {item.budget && item.budget}
-                                  </span>
-                                </td>
-                              </tr>
-                            ))}
-                        </tbody>
-                      </table>
+                  <div className="container mt-4">
+                    <div className="d-flex justify-content-between align-items-center mb-3">
+                      <h2
+                        className="fw-bold"
+                        style={{
+                          color: "var(--title-color)",
+                          fontFamily: "var(--font-rubik)",
+                        }}
+                      >
+                        Cab Management
+                      </h2>
+                      <button
+                        className="btn btn-primary fw-bold"
+                        onClick={() => setShowModal(true)}
+                        style={{
+                          backgroundColor: "var(--primary-color1)",
+                          borderColor: "var(--primary-color1)",
+                        }}
+                      >
+                        + Add Cab
+                      </button>
                     </div>
+
+                    {/* Cab Cards */}
+                    <div className="row">
+                      {cabs.map((cab) => (
+                        <div className="col-md-4 mb-4" key={cab._id}>
+                          <div className="feature-card shadow-sm border-0">
+                            {/* Icon */}
+                            <div className="feature-card-icon">
+                              <TaxiIcon
+                                size={40}
+                                color="var(--primary-color1)"
+                              />
+                            </div>
+
+                            {/* Content */}
+                            <div className="feature-card-content">
+                              <h6
+                                className="fw-bold"
+                                style={{
+                                  fontFamily: "var(--font-rubik)",
+                                  color: "var(--title-color)",
+                                }}
+                              >
+                                {cab.source} → {cab.destination}
+                              </h6>
+
+                              <p
+                                className="small"
+                                style={{
+                                  color: "var(--text-color)",
+                                  fontFamily: "var(--font-jost)",
+                                }}
+                              >
+                                Route availability with multiple cab options.
+                              </p>
+
+                              <div className="car-price-list">
+                                {cab.cars.map((car, index) => (
+                                  <div
+                                    key={index}
+                                    className="d-flex justify-content-between"
+                                  >
+                                    <span
+                                      style={{ fontFamily: "var(--font-jost)" }}
+                                    >
+                                      {car.carName}
+                                    </span>
+                                    <span className="fw-bold text-primary">
+                                      ₹{car.price}
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <span
+                                className={`badge mt-3 ${
+                                  cab.active ? "bg-success" : "bg-secondary"
+                                }`}
+                              >
+                                {cab.active ? "Active" : "Inactive"}
+                              </span>
+
+                              {/* Actions */}
+                              <div className="mt-3 d-flex justify-content-between">
+                                <button
+                                  className="btn btn-sm"
+                                  style={{
+                                    borderColor: "var(--primary-color1)",
+                                    color: "var(--primary-color1)",
+                                  }}
+                                  onClick={() => handleEdit(cab)}
+                                >
+                                  Edit
+                                </button>
+
+                                <button
+                                  className="btn btn-sm btn-outline-danger"
+                                  onClick={() => setDeleteId(cab._id)}
+                                >
+                                  Delete
+                                </button>
+
+                                <button
+                                  className="btn btn-sm"
+                                  style={{
+                                    borderColor: "var(--primary-color2)",
+                                    color: "var(--primary-color2)",
+                                  }}
+                                  onClick={() => toggleStatus(cab)}
+                                >
+                                  {cab.active ? "Deactivate" : "Activate"}
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Add/Edit Modal */}
+                    {showModal && (
+                      <div className="modal show fade d-block" tabIndex="-1">
+                        <div className="modal-dialog modal-lg">
+                          <div className="modal-content">
+                            <div className="modal-header bg-primary text-white">
+                              <h5 className="modal-title" style={{ color: "#fff" }}>
+                                {editingCab ? "Edit Cab" : "Add Cab"}
+                              </h5>
+                              <button
+                                className="btn-close"
+                                onClick={() => setShowModal(false)}
+                              />
+                            </div>
+
+                            <div className="modal-body">
+                              <div className="mb-3">
+                                <label className="form-label">Source</label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  name="source"
+                                  value={form.source}
+                                  onChange={updateForm}
+                                />
+                              </div>
+
+                              <div className="mb-3">
+                                <label className="form-label">
+                                  Destination
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  name="destination"
+                                  value={form.destination}
+                                  onChange={updateForm}
+                                />
+                              </div>
+
+                              <label className="form-label fw-bold">Cars</label>
+                              {form.cars.map((car, index) => (
+                                <div className="row mb-2" key={index}>
+                                  <div className="col-md-5">
+                                    <input
+                                      type="text"
+                                      className="form-control"
+                                      placeholder="Car Name"
+                                      value={car.carName}
+                                      onChange={(e) =>
+                                        updateForm(e, index, "carName")
+                                      }
+                                    />
+                                  </div>
+                                  <div className="col-md-5">
+                                    <input
+                                      type="number"
+                                      className="form-control"
+                                      placeholder="Price"
+                                      value={car.price}
+                                      onChange={(e) =>
+                                        updateForm(e, index, "price")
+                                      }
+                                    />
+                                  </div>
+                                  <div className="col-md-2">
+                                    <button
+                                      className="btn btn-danger w-100"
+                                      onClick={() => removeCarRow(index)}
+                                      disabled={form.cars.length === 1}
+                                    >
+                                      ×
+                                    </button>
+                                  </div>
+                                </div>
+                              ))}
+
+                              <button
+                                className="btn btn-secondary"
+                                onClick={addCarRow}
+                              >
+                                + Add Car
+                              </button>
+                            </div>
+
+                            <div className="modal-footer">
+                              <button
+                                className="btn btn-secondary"
+                                onClick={() => setShowModal(false)}
+                              >
+                                Cancel
+                              </button>
+                              <button
+                                className="btn btn-primary"
+                                onClick={handleSave}
+                              >
+                                {editingCab ? "Update" : "Save"}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Delete Confirmation Modal */}
+                    {deleteId && (
+                      <div className="modal show fade d-block" tabIndex="-1">
+                        <div className="modal-dialog">
+                          <div className="modal-content">
+                            <div className="modal-header bg-danger text-white">
+                              <h5 className="modal-title" style={{ color: "#fff" }}>Confirm Delete</h5>
+                              <button
+                                className="btn-close"
+                                onClick={() => setDeleteId(null)}
+                              />
+                            </div>
+
+                            <div className="modal-body">
+                              <p className="fw-bold">
+                                Are you sure you want to delete this cab?
+                              </p>
+                            </div>
+
+                            <div className="modal-footer">
+                              <button
+                                className="btn btn-secondary"
+                                onClick={() => setDeleteId(null)}
+                              >
+                                Cancel
+                              </button>
+                              <button
+                                className="btn btn-danger"
+                                onClick={handleDelete}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -303,4 +551,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default CabManagement;
